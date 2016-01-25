@@ -11,10 +11,8 @@ angular.module("app", ['dataManager'])
 
         $scope.currentDate = new Date(2016, 0,30);
         $scope.year = $scope.currentDate.getFullYear();
-        $scope.addEvent = function() {
-            $rootScope.daysList[0].events.push(2);
-            alert( $rootScope.daysList[0].events);
-        }
+        data.getNumbEventsOfTheDayUns($scope.currentDate);
+
 
     }]);
 

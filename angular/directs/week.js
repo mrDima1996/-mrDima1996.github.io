@@ -6,8 +6,8 @@ angular.module("app")
         return {
             controller: ['$scope', 'data', function($scope,data){
                 // создает семь дивов (дней), в каждом инкапсулирует его номер
-                $scope.daysList = data.getCurrentWeek();
-                data.getCurrentWeekUns($scope.currentDate);
+                $scope.daysList = data.getCurrentWeekUns($scope.currentDate);
+
             }],
             template: '<day class="day" date="day.id" ng-repeat="day in daysList" ></day>'
         }

@@ -11,16 +11,19 @@ angular.module('dataManager', ['dataSourse'])
                     return false;
                 }
             }
+            //Передаю все данные в localStorage
             if(supports_html5_storage){
                 var localStorage = window.localStorage;
-                for (key in getData){
-                    localStorage[key] = getData[key];
+                for (key in getData) {
+                    localStorage[key] = JSON.stringify(getData[key]);
                 }
+
+
             }
             else alert('Ваш браузер не поддерживает localStorage');
         }
         moveDataToLocalStorage();
-
+        var localStorage = window.localStorage;
         var daysInWeek = []; //тут хранятся данные о текущей неделе
 
      return {
@@ -42,11 +45,12 @@ angular.module('dataManager', ['dataSourse'])
 
              //... а потом перебираю ее до следующего понедельника...
              do {
-                 days.push({id: dayOfTheWeek, date: new Date(day)});
+                 days.push({id: dayOfTheWeek, events: this.getNumbEventsOfTheDayUns(day)});
                  day.setDate(day.getDate()+1);
                  dayOfTheWeek = day.getDay();
              } while(dayOfTheWeek!=1);
-             //console.log(days);
+             daysInWeek = days;
+             return daysInWeek;
          },
 
          /**
@@ -54,20 +58,23 @@ angular.module('dataManager', ['dataSourse'])
           * @returns {Array}
           */
          getCurrentWeek: function(){
-             daysInWeek = getData.daysList;
+             daysInWeek = JSON.parse(localStorage.daysList);
              return daysInWeek;
          },
 
          /**
           * возвращает список с вообще всеми событиями в программе
-          * @returns {getData.eventList|{1, 2, 3, 4, 5, 6}}
           */
-         getAllEvents: function(){ //
-             return getData.eventList;
+
+
+         getNumbEventsOfTheDayUns: function(date){
+             var year = date.getFullYear();
+             var month = date.getMonth();
+             var day = date.getDate();
+             return JSON.parse(localStorage.dateList)[year][month][day];
          },
-         getYear: function(){ //возвращает год. (Тестовая)
-             return getData.year;
-         },
+
+
          /**
           * вернуть номера событий дня
           * @param day - номер дня в неделе
@@ -82,7 +89,7 @@ angular.module('dataManager', ['dataSourse'])
           * @returns {*}
           */
          getEvent: function(id) {
-             return getData.eventList[id];
+             return JSON.parse(localStorage.eventList)[id];
          }
      }
     }]);

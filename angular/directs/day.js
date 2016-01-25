@@ -32,7 +32,7 @@ angular.module('app')
                 else { //если нету - передаю пустую заготовку
                     $scope.localEvents =   {
                             name: '',
-                            describe: []};
+                            content: []};
                 }
 
 
