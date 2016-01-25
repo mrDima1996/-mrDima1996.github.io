@@ -2,7 +2,7 @@
  * Created by mrDima on 25.01.2016.
  */
 
-angular.module('day')
+angular.module('app')
 
     .directive('event', function() {
         return {
@@ -10,6 +10,6 @@ angular.module('day')
                 name: '=',
                 describe: '='
             },
-            template: '{{name}}   {{describe}}'
+            template: '{{name}}   {{content}}'
         }
     });
