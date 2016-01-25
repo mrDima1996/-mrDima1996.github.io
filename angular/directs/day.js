@@ -1,7 +1,7 @@
 /**
  * Created by mrDima on 11.01.2016.
  */
-angular.module('day', [])
+angular.module('app')
     .directive('day', function(){
         return {
                 scope: {
@@ -35,15 +35,6 @@ angular.module('day', [])
 
             }]
         }
-    })
+    });
 
 
-    .directive('event', function() {
-        return {
-            scope: {
-                name: '=',
-                describe: '='
-            },
-            template: '{{name}}   {{describe}}'
-        }
-    })

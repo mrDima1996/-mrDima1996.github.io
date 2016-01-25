@@ -2,6 +2,7 @@
   border: 1px solid black;
 }
 
+$timeContainerTotalHeight: 70px;
 
 
 #wrapper{
@@ -46,7 +47,8 @@
 }
 
 .timeContainer {
-  padding-bottom: 40px;
+  padding-bottom: $timeContainerTotalHeight - 20;
+  margin-bottom: 0;
 }
 
 #content {
@@ -64,11 +66,11 @@
 }
 
 .day {
-  height: 1790px;
+  height: $timeContainerTotalHeight*25.5;
   //width: calc(100% / 7 - 5px);
   width: 150px;
   @include addBorder();
-  display: inline-block;
+  display: table-cell;
   margin-right: 1px;
 }
 

@@ -33,7 +33,8 @@
   display: inline; }
 
 .timeContainer {
-  padding-bottom: 40px; }
+  padding-bottom: 50px;
+  margin-bottom: 0; }
 
 #content {
   padding-top: 20px;
@@ -47,10 +48,10 @@
   margin: auto; }
 
 .day {
-  height: 1790px;
+  height: 1785px;
   width: 150px;
   border: 1px solid black;
-  display: inline-block;
+  display: table-cell;
   margin-right: 1px; }
 
 .clear {

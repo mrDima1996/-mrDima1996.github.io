@@ -4,7 +4,7 @@
 //alert(Date(2016,0,10,0,0,0));
 
 angular
-    .module("app", ['day'])
+    .module("app", [])
 
     .controller('mainCtrl', [ '$scope', '$rootScope', function($scope,$rootScope) {
         $rootScope.year = 2015; //текущий год
@@ -49,20 +49,13 @@ angular
             alert( $rootScope.daysList[0].events);
         }
 
-    }])
+    }]);
 
 
 
 
 
-    .directive('week', function(){
-        return {
-            link: ['$scope', '$rootScope', function($scope,$rootScope){
-            // создает семь дивов (дней), в каждом инкапсулирует его номер
-            }],
-            template: '<day class="day" date="day.id" ng-repeat="day in daysList" ></day>'
-        }
-    });
+
 //.directive('day', function(){
 //    return {
 //        scope: {
