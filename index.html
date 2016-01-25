@@ -1,0 +1,58 @@
+
+<!--Created by mrDima on 09.01.2016.
+--><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <script src="public/vendor/angular.min.js"></script>
+    <script src="public/js/app.js"></script>
+    <script src="angular/directs/day.js"></script>
+    <script src="angular/ctrls/mainCtrl.js"></script>
+    <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="styleSheet" href="public/css/style.css">
+    <title>diary</title>
+  </head>
+  <body ng-app="app">
+    <div class="container-fluid">
+      <div id="wrapper" class="row">
+        <div class="timeDiv">
+          <p class="timeContainer">0.00</p>
+          <p class="timeContainer">1.00</p>
+          <p class="timeContainer">2.00</p>
+          <p class="timeContainer">3.00</p>
+          <p class="timeContainer">4.00</p>
+          <p class="timeContainer">5.00</p>
+          <p class="timeContainer">6.00</p>
+          <p class="timeContainer">7.00</p>
+          <p class="timeContainer">8.00</p>
+          <p class="timeContainer">9.00</p>
+          <p class="timeContainer">10.00</p>
+          <p class="timeContainer">11.00</p>
+          <p class="timeContainer">12.00</p>
+          <p class="timeContainer">13.00</p>
+          <p class="timeContainer">14.00</p>
+          <p class="timeContainer">15.00</p>
+          <p class="timeContainer">16.00</p>
+          <p class="timeContainer">17.00</p>
+          <p class="timeContainer">18.00</p>
+          <p class="timeContainer">19.00</p>
+          <p class="timeContainer">20.00</p>
+          <p class="timeContainer">21.00</p>
+          <p class="timeContainer">22.00</p>
+          <p class="timeContainer">23.00</p>
+          <p class="timeContainer">24.00</p>
+        </div>
+        <div ng-controller="mainCtrl" class="diaryDiv">
+          <div id="footer">
+            <button class="prevWeek btn btn-primary">Prev week</button>
+            <h1 class="yearText">Year {{year}}</h1>
+            <button class="nextWeek btn btn-primary">Next week</button>
+          </div>
+          <div id="content">
+            <div week class="week"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

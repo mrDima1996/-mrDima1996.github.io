@@ -1,0 +1,85 @@
+@mixin addBorder() {
+  border: 1px solid black;
+}
+
+
+
+#wrapper{
+  padding-top: 20px;
+  width: 100%;
+  overflow:hidden;
+}
+
+.timeDiv {
+  width: 50px;
+  height: 100%;
+  padding-top: 120px;
+  padding-left: 5px;
+  float: left;
+}
+
+.diaryDiv{
+  @include addBorder();
+  width: calc(100% - 50px);
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+#footer{
+  padding: 15px;
+}
+
+.prevWeek{
+  float: left;
+  display: inline;
+
+}
+
+.nextWeek {
+  float: right;
+  display: inline;
+}
+
+.yearText {
+  display: inline;
+}
+
+.timeContainer {
+  padding-bottom: 40px;
+}
+
+#content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.week {
+
+  width: 1100px;
+  margin: auto;
+}
+
+.day {
+  height: 1790px;
+  //width: calc(100% / 7 - 5px);
+  width: 150px;
+  @include addBorder();
+  display: inline-block;
+  margin-right: 1px;
+}
+
+.clear {
+  clear:both;
+  font-size:0;
+  overflow:hidden; /* тройной презерватив для IE */
+}
+
+.event {
+  display: block;
+}
+
+
