@@ -3,8 +3,28 @@
  */
 angular.module('dataManager', ['dataSourse'])
 .factory('data',['getData', function(getData){
+        function moveDataToLocalStorage(){
+            function supports_html5_storage() {
+                try {
+                    return 'localStorage' in window && window['localStorage'] !== null;
+                } catch (e) {
+                    return false;
+                }
+            }
+            if(supports_html5_storage){
+                var localStorage = window.localStorage;
+                for (key in getData){
+                    localStorage[key] = getData[key];
+                }
+            }
+            else alert('Ваш браузер не поддерживает localStorage');
+        }
+        moveDataToLocalStorage();
+
         var daysInWeek = []; //тут хранятся данные о текущей неделе
+
      return {
+
 
 
          getCurrentWeekUns: function(date){
@@ -26,7 +46,7 @@ angular.module('dataManager', ['dataSourse'])
                  day.setDate(day.getDate()+1);
                  dayOfTheWeek = day.getDay();
              } while(dayOfTheWeek!=1);
-             console.log(days);
+             //console.log(days);
          },
 
          /**

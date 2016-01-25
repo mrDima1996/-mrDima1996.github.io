@@ -26,7 +26,7 @@ angular.module('dataSourse', [])
             ],
 
             dateList: {
-                2016: {
+                    2016: {
                     0:{
                         25: [1, 2, 3,4,5,6],
                         26: [1],

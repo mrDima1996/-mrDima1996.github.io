@@ -6,6 +6,9 @@
 angular.module("app", ['dataManager'])
 
     .controller('mainCtrl', [ '$scope', 'data', function($scope, data) {
+
+
+
         $scope.currentDate = new Date(2016, 0,30);
         $scope.year = $scope.currentDate.getFullYear();
         $scope.addEvent = function() {
@@ -13,7 +16,7 @@ angular.module("app", ['dataManager'])
             alert( $rootScope.daysList[0].events);
         }
 
-    }])
+    }]);
 
 
 
