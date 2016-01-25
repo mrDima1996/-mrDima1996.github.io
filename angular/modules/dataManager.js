@@ -29,8 +29,11 @@ angular.module('dataManager', ['dataSourse'])
      return {
 
 
-
-         getCurrentWeekUns: function(date){
+         /**
+          * возвращает данные о днях текущей недели
+          * @returns {Array}
+          */
+         getCurrentWeek: function(date){
              var days = [];
 
              //нам надо получить даты текущей недели. Так как в js неделя начинаеться с воскресения, а не с понедельника...
@@ -45,7 +48,7 @@ angular.module('dataManager', ['dataSourse'])
 
              //... а потом перебираю ее до следующего понедельника...
              do {
-                 days.push({id: dayOfTheWeek, events: this.getNumbEventsOfTheDayUns(day)});
+                 days.push({id: new Date(day), events: this.getNumbEventsOfTheDay(day)});
                  day.setDate(day.getDate()+1);
                  dayOfTheWeek = day.getDay();
              } while(dayOfTheWeek!=1);
@@ -53,21 +56,15 @@ angular.module('dataManager', ['dataSourse'])
              return daysInWeek;
          },
 
-         /**
-          * возвращает данные о днях текущей недели
-          * @returns {Array}
-          */
-         getCurrentWeek: function(){
-             daysInWeek = JSON.parse(localStorage.daysList);
-             return daysInWeek;
-         },
+
+
 
          /**
-          * возвращает список с вообще всеми событиями в программе
+          * вернуть номера событий дня
+          * @param date Date- дата дня
+          * @returns {Array|events|{}|*}
           */
-
-
-         getNumbEventsOfTheDayUns: function(date){
+         getNumbEventsOfTheDay: function(date){
              var year = date.getFullYear();
              var month = date.getMonth();
              var day = date.getDate();
@@ -75,14 +72,8 @@ angular.module('dataManager', ['dataSourse'])
          },
 
 
-         /**
-          * вернуть номера событий дня
-          * @param day - номер дня в неделе
-          * @returns {Array|events|{}|*}
-          */
-         getNumbEventsOfTheDay: function(day){
-            return daysInWeek[day].events;
-        },
+
+
          /**
           * вернуть событие по айдишнику
           * @param id - номер события

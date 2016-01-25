@@ -7,9 +7,14 @@ angular.module('app')
     .directive('event', function() {
         return {
             scope: {
-                name: '=',
-                describe: '='
+                number: '='
             },
-            template: '{{name}}   {{content}}'
+            controller: ['$scope', 'data', function($scope, data) {
+                var eventData = data.getEvent($scope.number);
+
+                $scope.name = eventData.name;
+                $scope.content = eventData.content;
+            }],
+            template: '<p>{{name}} {{content}}</p>'
         }
     });

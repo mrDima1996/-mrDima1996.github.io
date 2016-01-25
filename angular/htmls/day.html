@@ -1,9 +1,9 @@
 
     <div class="dayFooter">
-        {{date}}
+        {{date.getDate()+'.'+(date.getMonth()+1)}}
     </div>
     <div class="dayContent">
-        <event class='event' name="event.name" content="event.describe" ng-repeat="event in localEvents"></event>
+        <event class='event' number="event" ng-repeat="event in eventNumb"></event>
     </div>
 
     <div class="clear"></div>
