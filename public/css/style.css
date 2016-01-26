@@ -3,6 +3,9 @@
   padding-top: 20px;
   width: 100%;
   overflow: hidden; }
+  @media (max-width: 768px) {
+    #wrapper #wrapper {
+      width: 768px; } }
 
 .timeDiv {
   width: 50px;
@@ -34,7 +37,8 @@
 
 .timeContainer {
   padding-bottom: 50px;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  position: fixed; }
 
 #content {
   padding-top: 20px;
@@ -63,7 +67,7 @@
 .event {
   display: block;
   width: 140px;
-  position: fixed;
+  position: relative;
   margin: 0 5px 5px 5px;
   border: 1px solid black;
   height: 65px;

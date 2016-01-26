@@ -9,6 +9,12 @@ $dayCollumWidth: 150px;
   padding-top: 20px;
   width: 100%;
   overflow:hidden;
+  @media (max-width: 768px) {
+    #wrapper{
+      width: 768px;
+    }
+  }
+
 }
 
 .timeDiv {
@@ -49,6 +55,7 @@ $dayCollumWidth: 150px;
 .timeContainer {
   padding-bottom: $timeContainerTotalHeight - 20;
   margin-bottom: 0;
+  position:fixed;
 }
 
 #content {
@@ -84,7 +91,7 @@ $dayCollumWidth: 150px;
 .event {
   display: block;
   width: $dayCollumWidth - 10;
-  position: fixed;
+  position: relative;
   margin: 0 5px 5px 5px;
   @include addBorder();
   height: $timeContainerTotalHeight - 5;
