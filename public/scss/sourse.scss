@@ -3,7 +3,7 @@
 }
 
 $timeContainerTotalHeight: 70px;
-
+$dayCollumWidth: 150px;
 
 #wrapper{
   padding-top: 20px;
@@ -57,18 +57,19 @@ $timeContainerTotalHeight: 70px;
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
+
+
 }
 
 .week {
-
-  width: 1100px;
+  width: $dayCollumWidth*7;
   margin: auto;
 }
 
 .day {
   height: $timeContainerTotalHeight*25.5;
   //width: calc(100% / 7 - 5px);
-  width: 150px;
+  width: $dayCollumWidth;
   @include addBorder();
   display: table-cell;
   margin-right: 1px;
@@ -82,6 +83,24 @@ $timeContainerTotalHeight: 70px;
 
 .event {
   display: block;
+  width: $dayCollumWidth - 10;
+  position: fixed;
+  margin: 0 5px 5px 5px;
+  @include addBorder();
+  height: $timeContainerTotalHeight - 5;
+  overflow: hidden;
 }
+
+.eventName {
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin:0;
+}
+.eventTextContent{
+  text-align: left;
+  margin:0;
+}
+
+
 
 

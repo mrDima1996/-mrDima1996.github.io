@@ -14,6 +14,7 @@ angular.module('dataManager', ['dataSourse'])
             //Передаю все данные в localStorage
             if(supports_html5_storage){
                 var localStorage = window.localStorage;
+                localStorage.clear();
                 for (key in getData) {
                     localStorage[key] = JSON.stringify(getData[key]);
                 }

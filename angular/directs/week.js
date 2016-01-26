@@ -5,7 +5,7 @@ angular.module("app")
     .directive('week', function(){
         return {
             controller: ['$scope', 'data', function($scope,data){
-                // создает семь дивов (дней), в каждом инкапсулирует его номер
+                // создает семь дивов (дней), и каждому передает его номер
                 $scope.daysList = data.getCurrentWeek($scope.currentDate);
 
             }],

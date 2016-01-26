@@ -5,7 +5,7 @@ angular.module('app')
     .directive('day', function(){
         return {
                 scope: {
-                date: '=' //инкапсул€ци€ даты дл€ этого дн€
+                date: '=' // дата этого дн€
             },
             templateUrl: 'angular/htmls/day.html',
             controller: ['$scope', 'data', function($scope, data) {

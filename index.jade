@@ -22,12 +22,12 @@ html(lang='en')
    body(ng-app='app')
        div.container-fluid
            div.row#wrapper
-                div.timeDiv
+                div.timeDiv.col-xs-1
                     - for (var i=0; i<25; i++)
                         p.timeContainer= i+'.00'
 
 
-                div.diaryDiv(ng-controller='mainCtrl')
+                div.diaryDiv(ng-controller='mainCtrl').col-xs-11
                     div#footer
                         button.prevWeek.btn.btn-primary Prev week
                         h1.yearText Year {{year}}

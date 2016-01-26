@@ -14,40 +14,60 @@
 angular.module('dataSourse', [])
 .factory('getData', function(){
         return {
-            year: 2015, //текущий год
-            daysList: [  //—писок всех дней
-            {id: '0', events: [1, 2, 3,4,5,6]},
-            {id: '1', events: [1]},
-            {id: '2', events: []},
-            {id: '3', events: [3]},
-            {id: '4', events: []},
-            {id: '5', events: [4]},
-            {id: '6', events: []}
-            ],
+            dateList:
+            {2016: {
+                0: {
+                    25:[1,2,3,4,5,6],
+                    26:[1],
+                    27:[],
+                    28:[2],
+                    29:[],
+                    30:[4],
+                    31:[5]
+                }
+
+            }},
        eventList: { //список всех событий
             1: {
+                type: 'text',
+                color: 'default',
                 name: 'Test',
-                content: 'ololol'
+                content: 'ololol',
+                time: {begin: 2, end: 3}
             },
             2: {
+                type: 'text',
+                color: 'default',
                 name: 'Test2',
-                content: 'ololol2'
+                content: '1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0',
+                time: {begin: 5, end: 7}
             },
             3: {
+                type: 'text',
+                color: 'default',
                 name: 'Test3',
-                content: 'ololol2'
+                content: 'ololol2',
+                time: {begin: 8, end: 9}
             },
             4: {
+                type: 'text',
+                color: 'default',
                 name: 'Test4',
-                content: 'ololol'
+                content: 'ololol',
+                time: {begin: 11, end: 15}
             },
             5: {
                 name: 'Test5',
-                content: 'ololol2'
+                color: 'default',
+                content: 'ololol2',
+                time: {begin: 17, end: 18}
             },
             6: {
+                type: 'text',
+                color: 'default',
                 name: 'Test6',
-                content: 'ololol2'
+                content: 'ololol2',
+                time: {begin: 19, end: 24}
             }
         }
 

@@ -44,7 +44,7 @@
   width: 100%; }
 
 .week {
-  width: 1100px;
+  width: 1050px;
   margin: auto; }
 
 .day {
@@ -61,6 +61,21 @@
   /* ЄЁющэющ яЁхчхЁтрЄшт фы  IE */ }
 
 .event {
-  display: block; }
+  display: block;
+  width: 140px;
+  position: fixed;
+  margin: 0 5px 5px 5px;
+  border: 1px solid black;
+  height: 65px;
+  overflow: hidden; }
+
+.eventName {
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin: 0; }
+
+.eventTextContent {
+  text-align: left;
+  margin: 0; }
 
 /*# sourceMappingURL=style.css.map */
