@@ -3,7 +3,7 @@
 --><!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
     <script src="public/vendor/angular.min.js"></script>
     <script src="angular/modules/app.js"></script>
     <script src="angular/modules/dataSourse.js"></script>
@@ -18,8 +18,8 @@
   </head>
   <body ng-app="app">
     <div class="container-fluid">
-      <div id="wrapper" class="row">
-        <div class="timeDiv col-xs-1">
+      <div id="wrapper">
+        <div class="timeDiv">
           <p class="timeContainer">0.00</p>
           <p class="timeContainer">1.00</p>
           <p class="timeContainer">2.00</p>
@@ -46,11 +46,17 @@
           <p class="timeContainer">23.00</p>
           <p class="timeContainer">24.00</p>
         </div>
-        <div ng-controller="mainCtrl" class="diaryDiv col-xs-11">
-          <div id="footer">
-            <button class="prevWeek btn btn-primary">Prev week</button>
-            <h1 class="yearText">Year {{year}}</h1>
-            <button class="nextWeek btn btn-primary">Next week</button>
+        <div ng-controller="mainCtrl" class="diaryDiv">
+          <div id="footer" class="row">
+            <div class="col-xs-6">
+              <button class="prevWeek btn btn-primary">Prev week</button>
+            </div>
+            <dic class="col-xs-6">
+              <button class="nextWeek btn btn-primary">Next week</button>
+            </dic>
+            <div class="col-xs-12">
+              <h1 class="yearText">Year {{year}}</h1>
+            </div>
           </div>
           <div id="content">
             <div week class="week"></div>

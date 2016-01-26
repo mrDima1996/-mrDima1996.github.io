@@ -9,12 +9,6 @@ $dayCollumWidth: 150px;
   padding-top: 20px;
   width: 100%;
   overflow:hidden;
-  @media (max-width: 768px) {
-    #wrapper{
-      width: 768px;
-    }
-  }
-
 }
 
 .timeDiv {
@@ -27,10 +21,11 @@ $dayCollumWidth: 150px;
 
 .diaryDiv{
   @include addBorder();
-  width: calc(100% - 50px);
   height: 100%;
   float: left;
+  width: 90%;
   text-align: center;
+
 }
 
 #footer{
@@ -53,15 +48,13 @@ $dayCollumWidth: 150px;
 }
 
 .timeContainer {
-  padding-bottom: $timeContainerTotalHeight - 20;
-  margin-bottom: 0;
+  margin-bottom: $timeContainerTotalHeight - 20;
 }
 
 #content {
   padding-top: 20px;
   padding-bottom: 20px;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-x: scroll;
   width: 100%;
 
 
@@ -69,16 +62,18 @@ $dayCollumWidth: 150px;
 
 .week {
   width: $dayCollumWidth*7;
+  //@media screen and (max-width: 600px){
+  //  width: 600px;
+  //}
   margin: auto;
+
 }
 
 .day {
   height: $timeContainerTotalHeight*25.5;
-  //width: calc(100% / 7 - 5px);
   width: $dayCollumWidth;
   @include addBorder();
   display: table-cell;
-  margin-right: 1px;
 }
 
 .clear {

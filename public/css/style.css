@@ -3,9 +3,6 @@
   padding-top: 20px;
   width: 100%;
   overflow: hidden; }
-  @media (max-width: 768px) {
-    #wrapper #wrapper {
-      width: 768px; } }
 
 .timeDiv {
   width: 50px;
@@ -16,9 +13,9 @@
 
 .diaryDiv {
   border: 1px solid black;
-  width: calc(100% - 50px);
   height: 100%;
   float: left;
+  width: 90%;
   text-align: center; }
 
 #footer {
@@ -36,14 +33,12 @@
   display: inline; }
 
 .timeContainer {
-  padding-bottom: 50px;
-  margin-bottom: 0; }
+  margin-bottom: 50px; }
 
 #content {
   padding-top: 20px;
   padding-bottom: 20px;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-x: scroll;
   width: 100%; }
 
 .week {
@@ -54,8 +49,7 @@
   height: 1785px;
   width: 150px;
   border: 1px solid black;
-  display: table-cell;
-  margin-right: 1px; }
+  display: table-cell; }
 
 .clear {
   clear: both;
