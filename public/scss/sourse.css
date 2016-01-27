@@ -6,7 +6,7 @@
 
 .timeDiv {
   height: 100%;
-  padding-top: 154px;
+  padding-top: 15px;
   padding-left: 5px;
   float: left; }
 
@@ -36,14 +36,20 @@
   margin-bottom: 50px; }
 
 #content {
+  margin-top: 5px;
   padding-top: 20px;
   padding-bottom: 20px;
   overflow-x: scroll;
+  border: 1px solid black;
   width: calc(100% - 100px);
   position: absolute; }
+  @media screen and (max-width: 400px) {
+    #content {
+      width: calc(100% - 50px); } }
 
 .week {
-  width: 1050px; }
+  width: 1050px;
+  margin: auto; }
 
 .day {
   height: 1785px;
@@ -57,8 +63,10 @@
   border-bottom: 1px solid black;
   position: absolute;
   width: 148px;
+  overflow: hidden;
   background-color: white;
-  z-index: 3; }
+  z-index: 3;
+  top: 21px; }
 
 .clear {
   clear: both;
@@ -82,6 +90,7 @@
 
 .eventTextContent {
   text-align: left;
-  margin: 0; }
+  margin: 0;
+  overflow: hidden; }
 
 /*# sourceMappingURL=sourse.css.map */

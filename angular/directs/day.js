@@ -13,31 +13,46 @@ angular.module('app')
                 $scope.eventNumb = data.getNumbEventsOfTheDay($scope.date);
             }],
             link: function() {
-                /*Да, говнокод, но я не знаю, как по-другому достучатся до последнего из
+                /*Да, говнокод, но я не знаю, как по-другому достучатся до создания последнего из
                  7-ми одинаковых дней, а отловить окончательную компиляцию
                  у меня не получилось ни на уровне недели, ни на всём документе.
                  */
+
+                //этот кусок кода нужен для создания "плавающих" дат дней
                 var footer = document.getElementsByClassName('dayFooter');
                 if ( footer.length == 7 ) {
-                    for ( var i = 0; i < footer.length; i++ ) {
-                        function Ascroll(e){
-                            if (footer[0].getBoundingClientRect().top <= 0) {
-                                for ( var i = 0; i < footer.length; i++ ) {
-                                        footer[i].style.position = 'fixed';
-                                        footer[i].style.top = '0px';
-                                }
-                            }
-                            else {
-                                for (i = 0; i < footer.length; i++ ) {
-                                    footer[i].style.position = 'absolute';
-                                    //footer[i].style.top = '0px';
-                                }
+                    //начальная позиция номера дня относительно самого дня
+                    var footerInitialTop = parseInt(getComputedStyle(footer[0]).top);
+
+                    //начальная высота номера дня относительно СТРАНИЦЫ
+                    var footerInitialHeight = parseInt(getComputedStyle(document.getElementsByClassName('timeDiv')[0]).paddingTop);
+
+                    function Ascroll(e) {
+                        //на сколько прокрутил пользователь
+                        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+
+                        //сколько краю экрана до заголовка
+                        var distance = scrolled - footerInitialHeight+6;
+
+                        //когда экран подошел вплотную к первоначальной позиции...
+                        if (distance>0) {
+
+                            //... просто передвинуть блок с номером чуток вниз. Слава абсолютному позиционированию.
+                            for ( var i = 0; i < footer.length; i++ ) {
+                                footer[i].style.top = footerInitialTop + distance + 'px';
                             }
                         }
-
-                        window.addEventListener('scroll', Ascroll, false);
+                        else {
+                            for (var i = 0; i < footer.length; i++ ) {
+                                footer[i].style.top = footerInitialTop + 'px';
+                            }
+                        }
                     }
+                    window.addEventListener('scroll', Ascroll, false);
                 }
+
+
+
             }
         }
     });

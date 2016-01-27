@@ -13,7 +13,7 @@ $dayCollumWidth: 150px;
 
 .timeDiv {
   height: 100%;
-  padding-top: 154px;
+  padding-top: 159px;
   padding-left: 5px;
   float: left;
 
@@ -31,7 +31,6 @@ $dayCollumWidth: 150px;
   padding: 15px;
   width: 100%;
   @include addBorder();
-
 }
 
 .prevWeek{
@@ -54,10 +53,16 @@ $dayCollumWidth: 150px;
 }
 
 #content {
+  margin-top: 5px;
   padding-top: 20px;
   padding-bottom: 20px;
   overflow-x: scroll;
+  @include addBorder();
+  //border-right: 1px solid black;
   width: calc(100% - 100px);
+  @media screen and (max-width: 400px) {
+    width: calc(100% - 50px)
+  }
   position: absolute;
 }
 
@@ -81,8 +86,10 @@ $dayCollumWidth: 150px;
   border-bottom: 1px solid black;
   position: absolute;
   width: $dayCollumWidth - 2;
+  overflow: hidden;
   background-color: white;
   z-index: 3;
+  top: 21px;
 }
 
 .clear {
@@ -109,6 +116,7 @@ $dayCollumWidth: 150px;
 .eventTextContent{
   text-align: left;
   margin:0;
+  overflow: hidden;
 }
 
 

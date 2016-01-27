@@ -17,8 +17,9 @@ angular.module('app')
                 $scope.name = eventData.name; //заголовок
                 $scope.content = eventData.content; //контент
 
-                if ($scope.content.length>42) $scope.displayContent = $scope.content.slice(0,42)+'...';
-                else $scope.displayContent = $scope.content; //обрезаем контент, если слишком большой
+                $scope.displayContent = $scope.content;
+                //if ($scope.content.length>42) $scope.displayContent = $scope.content.slice(0,42)+'...';
+                //else $scope.displayContent = $scope.content; //обрезаем контент, если слишком большой
 
                 //высота блока события. Расчитывается исходя из времени начала и конца.
                 $scope.aHeight = schedule.getHeight(eventData.time.begin,eventData.time.end);
@@ -46,6 +47,7 @@ angular.module('app')
         var basicH = parseInt(getComputedStyle(document.getElementsByClassName('timeContainer')[0]).marginBottom)+20;
         if (basicH === undefined) {basicH = 70; alert('Высота блока не определена. Выставленно значение по умолчанию')};
         return {
+            //получить высоту блока
             getHeight: function(begin, end){
                 //проверка на корректность введенного времени
                 if (end<begin) return false;
@@ -53,6 +55,7 @@ angular.module('app')
 
                 return (end-begin)*basicH-5;
             },
+            //получить начальные координа блока, относительно верхнй границы блока "дня"
             getTopCoord: function(begin){
                 //проверка на корректность введенного времени
                 if (begin<0) return false;
