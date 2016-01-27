@@ -12,7 +12,6 @@ $dayCollumWidth: 150px;
 }
 
 .timeDiv {
-  width: 50px;
   height: 100%;
   padding-top: 154px;
   padding-left: 5px;
@@ -65,6 +64,7 @@ $dayCollumWidth: 150px;
 .week {
   width: $dayCollumWidth*7;
   margin: auto;
+
 }
 
 .day {
@@ -72,10 +72,17 @@ $dayCollumWidth: 150px;
   width: $dayCollumWidth;
   @include addBorder();
   display: table-cell;
+  background-color: white;
+  z-index: 1;
+
 }
 
 .dayFooter{
   border-bottom: 1px solid black;
+  position: absolute;
+  width: $dayCollumWidth - 2;
+  background-color: white;
+  z-index: 3;
 }
 
 .clear {
@@ -91,6 +98,7 @@ $dayCollumWidth: 150px;
   margin: 0 5px 5px 5px;
   @include addBorder();
   overflow: hidden;
+  z-index: 2;
 }
 
 .eventName {
