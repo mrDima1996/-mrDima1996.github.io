@@ -33,7 +33,7 @@ angular.module('dataSourse', [])
                 color: 'default',
                 name: 'Test',
                 content: 'ololol',
-                time: {begin: 2, end: 3}
+                time: {begin: 0, end: 3}
             },
             2: {
                 type: 'text',
@@ -47,7 +47,7 @@ angular.module('dataSourse', [])
                 color: 'default',
                 name: 'Test3',
                 content: 'ololol2',
-                time: {begin: 8, end: 9}
+                time: {begin: 7, end: 9}
             },
             4: {
                 type: 'text',
