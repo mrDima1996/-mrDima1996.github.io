@@ -25,8 +25,10 @@ angular.module('app')
                     var footerInitialTop = parseInt(getComputedStyle(footer[0]).top);
 
                     //начальная высота номера дня относительно СТРАНИЦЫ
-                    var footerInitialHeight = parseInt(getComputedStyle(document.getElementsByClassName('timeDiv')[0]).paddingTop);
+                    var footerInitialHeight = parseInt(getComputedStyle(document.getElementsByClassName('timeDiv')[0]).paddingTop)+
+                        parseInt(getComputedStyle(document.getElementById('wrapper')).height)-18;
 
+                    console.log(footerInitialHeight);
                     function Ascroll(e) {
                         //на сколько прокрутил пользователь
                         var scrolled = window.pageYOffset || document.documentElement.scrollTop;

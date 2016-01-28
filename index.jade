@@ -22,11 +22,6 @@ html(lang='en')
    body(ng-app='app')
        //div.container-fluid
        div#wrapper
-                div.timeDiv
-                    - for (var i=0; i<25; i++)
-                        p.timeContainer= i+'.00'
-
-
                 div.diaryDiv(ng-controller='mainCtrl')
                     div.row#footer
                         div.col-xs-6
@@ -35,8 +30,22 @@ html(lang='en')
                             button.nextWeek.btn.btn-primary Next week
                         div.col-xs-12
                             h1.yearText Year {{year}}
+                    div.timeDiv
+                        - for (var i=0; i<25; i++)
+                            p.timeContainer= i + '.00'
                     div#content()
                         div.week(week)
+
+           //div.diaryDiv(ng-controller='mainCtrl')
+           //    div.row#footer
+           //        div.col-xs-6
+           //            button.prevWeek.btn.btn-primary Prev week
+           //        dic.col-xs-6
+           //            button.nextWeek.btn.btn-primary Next week
+           //        div.col-xs-12
+           //            h1.yearText Year {{year}}
+           //    div#content()
+           //        div.week(week)
 
 
 
