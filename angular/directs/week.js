@@ -4,11 +4,7 @@
 angular.module("app")
     .directive('week', function(){
         return {
-            controller: ['$scope', 'data', function($scope,data){
-                // создает семь дивов (дней), и каждому передает его номер
-                $scope.daysList = data.getCurrentWeek($scope.currentDate);
-
-            }],
-            template: '<day class="day" date="day.id" ng-repeat="day in daysList" ></day>'
+            controller: 'weekCtrl',
+            templateUrl: 'angular/htmls/week.html'
         }
     });
