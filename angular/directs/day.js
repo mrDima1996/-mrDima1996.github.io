@@ -8,57 +8,42 @@ angular.module('app')
                 date: '=' // дата этого дня
             },
             templateUrl: 'angular/htmls/day.html',
-            controller: ['$scope', 'data', function($scope, data) {
-                //номера событий в этот день
-                $scope.eventNumb = data.getNumbEventsOfTheDay($scope.date);
-            }],
-            link: function() {
-                /*Да, говнокод, но я не знаю, как по-другому достучатся до создания последнего из
-                 7-ми одинаковых дней, а отловить окончательную компиляцию
-                 у меня не получилось ни на уровне недели, ни на всём документе.
-                 */
+            controller: 'dayController'
+        }
+    })
 
-                //этот кусок кода нужен для создания "плавающих" дат дней
-                var footer = document.getElementsByClassName('dayFooter');
-                if ( footer.length == 7 ) {
-                    //начальная позиция номера дня относительно самого дня
-                    var footerInitialTop = parseInt(getComputedStyle(footer[0]).top);
+    .controller('dayController', ['$scope', 'data', function($scope, data) {
+        //номера событий в этот день
+        $scope.dayFooterTopC = '0px';
+        $scope.eventNumb = data.getNumbEventsOfTheDay($scope.date);
 
-                    //начальная высота номера дня относительно СТРАНИЦЫ. Берется высота обертки (все, что выше )
-                    //отступ блока "контент" и догоняеться числом из-за неучтённой толщины границ
-                    var footerInitialHeight = parseInt(getComputedStyle(document.getElementById('content')).paddingTop)+
-                        parseInt(getComputedStyle(document.getElementById('wrapper')).height)+8;
+        //этот код нужен для создания "плавающих" номеров дней недели
 
+        //начальная позиция номера дня (dayFooter))относительно самого блока дня (day) + border
+        var footerInitialTop = parseInt(getComputedStyle(document.getElementById('content')).paddingTop)+1;
 
-                    console.log(footerInitialHeight);
-                    function Ascroll(e) {
-                        //на сколько прокрутил пользователь
-                        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        //начальная высота номера дня относительно СТРАНИЦЫ. Берется высота обертки (wrapper - все, что выше content-a)
+        //отступ блока "контент" и догоняеться числом из-за неучтённой толщины границ
+        var footerInitialHeight = parseInt(getComputedStyle(document.getElementById('content')).paddingTop)+
+            parseInt(getComputedStyle(document.getElementById('wrapper')).height)+8;
 
-                        //сколько краю экрана до заголовка
-                        var distance = scrolled - footerInitialHeight+6;
+        $scope.dayFooterTopC = footerInitialTop+'px';
+        function Ascroll(e) {
+            //на сколько прокрутил пользователь
+            var scrolled = window.pageYOffset || document.documentElement.scrollTop;
 
-                        //когда экран подошел вплотную к первоначальной позиции...
-                        if (distance>0) {
+            //сколько краю экрана до заголовка
+            var distance = scrolled - footerInitialHeight+6;
 
-                            //... просто передвинуть блок с номером чуток вниз. Слава абсолютному позиционированию.
-                            for ( var i = 0; i < footer.length; i++ ) {
-                                footer[i].style.top = footerInitialTop + distance + 'px';
-                            }
-                        }
-                        else {
-                            for (var i = 0; i < footer.length; i++ ) {
-                                footer[i].style.top = footerInitialTop + 'px';
-                            }
-                        }
-                    }
-                    window.addEventListener('scroll', Ascroll, false);
-                }
-
-
-
+            //когда экран подошел вплотную к первоначальной позиции...
+            if (distance>0) {
+                $scope.$apply(function(){$scope.dayFooterTopC = footerInitialTop + distance + 'px';});
+            }
+            else {
+                $scope.$apply(function(){$scope.dayFooterTopC = footerInitialTop + 'px';});
             }
         }
-    });
+        window.addEventListener('scroll', Ascroll, false);
+    }]);
 
 
