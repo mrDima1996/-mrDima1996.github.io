@@ -9,7 +9,7 @@ angular.module('app')
         // “ак как оно может быть изменено € решил динамически подгружать его из стилей
         var basicH = parseInt(getComputedStyle(document.getElementsByClassName('timeContainer')[0]).marginBottom)+20;
         if (basicH === undefined) {basicH = 70; alert('¬ысота блока не определена. ¬ыставленно значение по умолчанию')};
-
+        var footerInitialTop;
         return {
             //получить высоту блока событи€
             getHeight: function(begin, end){
@@ -21,9 +21,10 @@ angular.module('app')
             },
             //получить начальные координа блока, относительно верхнй границы блока "дн€"
             getTopCoord: function(begin){
+                footerInitialTop = parseInt(getComputedStyle(document.getElementById('content')).paddingTop)+1;
                 //проверка на корректность введенного времени
                 if (begin<0) return false;
-                return begin*basicH+46;
+                return begin*basicH + 26 + footerInitialTop;
             }
         }
     }]);

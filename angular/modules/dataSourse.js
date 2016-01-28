@@ -12,7 +12,7 @@
 У события есть заголовок "name" и контент 'content'
  */
 angular.module('dataSourse', [])
-.factory('getData', function(){
+.service('getData', function(){
         return {
             dateList:
             {2016: {

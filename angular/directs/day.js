@@ -1,15 +1,20 @@
 /**
  * Created by mrDima on 11.01.2016.
  */
-var app = angular.module('app');
-    app.directive('day', function(){
+angular.module('app')
+    .directive('day', function(){
         return {
             scope: {
-                date: '=' // дата этого дня в формате Date
+                date: '=' // РґР°С‚Р° СЌС‚РѕРіРѕ РґРЅСЏ РІ С„РѕСЂРјР°С‚Рµ Date
             },
             templateUrl: 'angular/htmls/day.html',
             controller: 'dayCtrl',
-            link: function(){}
+            link: function(scope, element){
+                element.on('click', function(e){
+                    var target = angular.element(event.target);
+                    alert(target.scope().name);
+                })
+            }
         }
     });
 

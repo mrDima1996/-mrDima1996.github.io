@@ -2,7 +2,7 @@
  * Created by mrDima on 25.01.2016.
  */
 angular.module('dataManager', ['dataSourse'])
-.factory('data',['getData', function(getData){
+.service('data',['getData', function(getData){
         function moveDataToLocalStorage(){
             function supports_html5_storage() {
                 try {
