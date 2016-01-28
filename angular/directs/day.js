@@ -24,9 +24,11 @@ angular.module('app')
                     //начальная позиция номера дня относительно самого дня
                     var footerInitialTop = parseInt(getComputedStyle(footer[0]).top);
 
-                    //начальная высота номера дня относительно СТРАНИЦЫ
-                    var footerInitialHeight = parseInt(getComputedStyle(document.getElementsByClassName('timeDiv')[0]).paddingTop)+
-                        parseInt(getComputedStyle(document.getElementById('wrapper')).height)-18;
+                    //начальная высота номера дня относительно СТРАНИЦЫ. Берется высота обертки (все, что выше )
+                    //отступ блока "контент" и догоняеться числом из-за неучтённой толщины границ
+                    var footerInitialHeight = parseInt(getComputedStyle(document.getElementById('content')).paddingTop)+
+                        parseInt(getComputedStyle(document.getElementById('wrapper')).height)+8;
+
 
                     console.log(footerInitialHeight);
                     function Ascroll(e) {
