@@ -9,7 +9,6 @@
   padding-top: 46px;
   padding-left: 5px;
   float: left;
-  position: absolute;
   width: 41px; }
 
 .diaryDiv {
@@ -47,8 +46,7 @@
   overflow-x: scroll;
   border-right: 1px solid black;
   border-left: 1px solid black;
-  width: calc(100% - 82px);
-  position: absolute; }
+  width: calc(100% - 82px); }
   @media screen and (max-width: 400px) {
     #content {
       width: calc(100% - 41px); } }
@@ -57,39 +55,47 @@
   width: 1050px;
   margin: auto; }
 
+.hour {
+  height: 70px;
+  padding-top: 3px; }
+
 .day {
-  height: 1785px;
   width: 150px;
-  border: 1px solid black;
+  vertical-align: top;
   display: table-cell;
   background-color: white;
-  z-index: 1; }
+  z-index: 1;
+  border: 1px solid black; }
 
 .dayFooter {
   border-bottom: 1px solid black;
-  position: absolute;
-  width: 148px;
+  width: 100%;
   overflow: hidden;
   background-color: white;
   z-index: 3;
-  top: 21px; }
+  height: 20px; }
 
 .clear {
   clear: both;
   font-size: 0;
   overflow: hidden;
-  /* ЄЁющэющ яЁхчхЁтрЄшт фы  IE */ }
+  /* ╤В╤А╨╛╨╣╨╜╨╛╨╣ ╨┐╤А╨╡╨╖╨╡╤А╨▓╨░╤В╨╕╨▓ ╨┤╨╗╤П IE */ }
 
 .event {
   display: block;
-  width: 140px;
-  position: absolute;
+  width: 150px;
   background-color: white;
-  margin: 0 5px 5px 5px;
-  border: 1px solid black;
   overflow: hidden;
   z-index: 2;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 5px; }
+
+.eventInnerWrapper {
+  border: 1px solid black;
+  height: 100%; }
+
+.hidden {
+  visibility: hidden; }
 
 .eventName {
   text-align: center;
@@ -113,8 +119,5 @@
   height: 100%;
   background-color: grey;
   opacity: 0.8; }
-
-.hidden {
-  display: none; }
 
 /*# sourceMappingURL=style.css.map */

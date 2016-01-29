@@ -12,19 +12,15 @@ angular.module('app')
         var footerInitialTop;
         return {
             //получить высоту блока события
-            getHeight: function(begin, end){
-                //проверка на корректность введенного времени
-                if (end<begin) return false;
-                if ((end>24) || (begin<0)) return false;
-
-                return (end-begin)*basicH-5;
+            getHeight: function(duration){
+                return duration*basicH;
             },
             //получить начальные координа блока, относительно верхнй границы блока "дня"
             getTopCoord: function(begin){
                 footerInitialTop = parseInt(getComputedStyle(document.getElementById('content')).paddingTop)+1;
                 //проверка на корректность введенного времени
                 if (begin<0) return false;
-                return begin*basicH + 26 + footerInitialTop;
+                return begin*basicH + 16 + footerInitialTop;
             }
         }
     }]);

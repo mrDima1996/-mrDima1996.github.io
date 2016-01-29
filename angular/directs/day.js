@@ -9,7 +9,7 @@ angular.module('app')
             },
             templateUrl: 'angular/htmls/day.html',
             controller: 'dayCtrl',
-            link: function(scope, element){
+            link: function($scope, element){
                 element.on('click', function(e){
                     var target = angular.element(event.target);
                     alert(target.scope().name);

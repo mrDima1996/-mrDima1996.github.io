@@ -17,17 +17,24 @@ angular.module('dataSourse', [])
             dateList:
             {2016: {
                 0: {
-                    25:[1,2,3,4,5,6],
-                    26:[1],
-                    27:[],
-                    28:[2],
-                    29:[],
-                    30:[4],
-                    31:[5]
+                    25:{events: [2,1,3,6,4,5]},
+                    26:{events: [1]},
+                    27:{events: []},
+                    28:{events: [2]},
+                    29:{events: [3,6]},
+                    30:{events: [4]},
+                    31:{events: [2,1,3,6,4]}
                 }
 
             }},
        eventList: { //список всех событий
+           0: {
+               type: '',
+               color: '',
+               name: '',
+               content: '',
+               time: {begin: 0, end: -1}
+           },
             1: {
                 type: 'text',
                 color: 'default',

@@ -6,7 +6,8 @@ angular.module('app')
     .directive('event',['schedule', function(schedule) {
         return {
             scope: {
-                number: '='
+                number: '=',
+                duration: '='
             },
             controller: 'eventCtrl',
             templateUrl: 'angular/htmls/event.html'

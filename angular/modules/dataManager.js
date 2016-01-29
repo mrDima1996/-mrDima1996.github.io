@@ -69,7 +69,7 @@ angular.module('dataManager', ['dataSourse'])
              var year = date.getFullYear();
              var month = date.getMonth();
              var day = date.getDate();
-             return JSON.parse(localStorage.dateList)[year][month][day];
+             return JSON.parse(localStorage.dateList)[year][month][day].events;
          },
 
 
@@ -82,6 +82,17 @@ angular.module('dataManager', ['dataSourse'])
           */
          getEvent: function(id) {
              return JSON.parse(localStorage.eventList)[id];
+         },
+         /**
+          * вернуть продолжительность события
+          * @param id - номер события
+          */
+         getEventTimeData: function(id){
+             var event = JSON.parse(localStorage.eventList)[id];
+             var eBegin = event.time.begin;
+             var eEnd = event.time.end;
+             var eDuration = eEnd - eBegin;
+             return {begin: eBegin, duration: eDuration, end: eEnd}
          }
      }
     }]);

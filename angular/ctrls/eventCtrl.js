@@ -3,25 +3,24 @@
  */
 angular.module('app')
     .controller('eventCtrl', ['$scope', 'data','schedule', function($scope, data, schedule) {
-    //получаем данные по этому событию
+   // получаем данные по этому событию
     //при создании, мы передали сюда его номер
+
     var eventData = data.getEvent($scope.number);
 
+     if ($scope.number) $scope.show = 'visible';
+     else $scope.show = 'hidden';
     $scope.name = eventData.name; //заголовок
     $scope.content = eventData.content; //контент
 
     $scope.displayContent = $scope.content;
-    //if ($scope.content.length>42) $scope.displayContent = $scope.content.slice(0,42)+'...';
-    //else $scope.displayContent = $scope.content; //обрезаем контент, если слишком большой
+    if ($scope.content.length>42) $scope.displayContent = $scope.content.slice(0,42)+'...';
+    else $scope.displayContent = $scope.content; //обрезаем контент, если слишком большой
 
     //высота блока события. Расчитывается исходя из времени начала и конца.
-    $scope.aHeight = schedule.getHeight(eventData.time.begin,eventData.time.end);
+    $scope.aHeight = schedule.getHeight($scope.duration);
     if (!$scope.aHeight) $scope.aHeight = '0px';
     else $scope.aHeight += 'px';
+        console.log($scope.aHeight);
 
-    //координаты начала блока события от верхней границы блока дня.
-    // Абсолютная высота. Расчитывается из времени начала.
-    $scope.topCoord = schedule.getTopCoord(eventData.time.begin);
-    if ($scope.topCoord === false) $scope.topCoord = '-200px';
-    else  $scope.topCoord +='px';
 }]);

@@ -6,6 +6,8 @@ $timeContainerTotalHeight: 70px;
 $dayCollumWidth: 150px;
 $timeDivWidth: 41px;
 
+//РћСЃРЅРѕРІРЅС‹Рµ Р±Р»РѕРєРё
+
 #wrapper{
   padding-top: 20px;
   width: 100%;
@@ -17,7 +19,6 @@ $timeDivWidth: 41px;
   padding-top: 46px;
   padding-left: 5px;
   float: left;
-  position: absolute;
   width: $timeDivWidth;
 }
 
@@ -37,6 +38,8 @@ $timeDivWidth: 41px;
   @include addBorder();
 }
 
+//РЎРѕРґРµСЂР¶Р°РЅРёРµ С„СѓС‚РµСЂР°
+
 .prevWeek{
   float: left;
   display: inline;
@@ -53,10 +56,12 @@ $timeDivWidth: 41px;
   display: inline;
 }
 
+//РЎРѕРґРµСЂР¶Р°РЅРёРµ Р±Р»РѕРєР° РІСЂРµРјРµРЅРё
 .timeContainer {
   margin-bottom: $timeContainerTotalHeight - 20;
 }
 
+//Р±Р»РѕРє СЃ РІСЂРµРјРµРЅРµРј Рё РЅРµРґРµР»РµР№
 #content {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -64,75 +69,94 @@ $timeDivWidth: 41px;
   overflow-x: scroll;
   border-right: 1px solid black;
   border-left: 1px solid black;
-  //@include addBorder();
+  //РС‚Р°Рє, С‡С‚Рѕ Р¶Рµ СЌС‚Рѕ Р·РЅР°С‡РёС‚:
+  width: calc(100% - #{$timeDivWidth * 2}); //РІ РїСЂРѕСЃС‚РѕРј СЂРµР¶РёРјРµ РІСЃСЏ РЅРµРґРµР»СЏ Р·Р°РЅРёРјР°РµС‚ РІСЃРµ РјРµСЃС‚Рѕ С‚Р°Рє, С‡С‚РѕР±С‹ РїРѕ Р±РѕРєРј РѕСЃС‚Р°РІР°Р»РѕСЃСЊ
+  //РѕРґРёРЅР°РєРѕРІРѕРµ РјРµСЃС‚Рѕ (РґР»СЏ СЃРёРјРјРµС‚СЂРёРё) СЂР°РІРЅРѕРµ С€РёСЂРёРЅРµ Р±Р»РѕРєР° РІСЂРµРјРµРЅРё
 
-  //Итак, что же это значит:
-  width: calc(100% - #{$timeDivWidth * 2}); //в простом режиме вся неделя занимает все место так, чтобы по бокм оставалось
-  //одинаковое место (для симметрии) равное ширине блока времени
-
-  //когда же экран совсем маленький
+  //РєРѕРіРґР° Р¶Рµ СЌРєСЂР°РЅ СЃРѕРІСЃРµРј РјР°Р»РµРЅСЊРєРёР№
   @media screen and (max-width: 400px) {
     width: calc(100% - #{$timeDivWidth});
   }
 
-  position: absolute;
-}
 
+}
+//СЃР°РјРѕ СЂР°СЃРїРёСЃР°РЅРёРµ
 .week {
   width: $dayCollumWidth*7;
   margin: auto;
-
 }
 
+.hour {
+    height: $timeContainerTotalHeight;
+    //border-bottom: 1px solid black;
+    padding-top: 3px;
+}
+
+//РѕРґРёРЅ РґРµРЅСЊ
 .day {
-  height: $timeContainerTotalHeight*25.5;
+  //height: $timeContainerTotalHeight*25.5;
   width: $dayCollumWidth;
-  @include addBorder();
+  vertical-align: top;
   display: table-cell;
   background-color: white;
   z-index: 1;
-
+  @include addBorder();
 }
 
+
+
+//РґР°С‚Р° РґРЅСЏ
 .dayFooter{
   border-bottom: 1px solid black;
-  position: absolute;
-  width: $dayCollumWidth - 2;
+  width: 100%;
   overflow: hidden;
   background-color: white;
   z-index: 3;
-  top: 21px;
+  height: 20px;
 }
 
 .clear {
   clear:both;
   font-size:0;
-  overflow:hidden; /* тройной презерватив для IE */
+  overflow:hidden; /* С‚СЂРѕР№РЅРѕР№ РїСЂРµР·РµСЂРІР°С‚РёРІ РґР»СЏ IE */
 }
 
+//СЃРѕР±С‹С‚РёРµ
 .event {
   display: block;
-  width: $dayCollumWidth - 10;
-  position: absolute;
+  width: $dayCollumWidth;
   background-color: white;
-  margin: 0 5px 5px 5px;
-  @include addBorder();
   overflow: hidden;
   z-index: 2;
   cursor: pointer;
+  padding: 5px;
+
 }
 
+.eventInnerWrapper{
+  @include addBorder();
+  height: 100%;
+}
+
+.hidden {
+ visibility: hidden;
+}
+
+//РЅР°Р·РІР°РЅРёРµ СЃРѕР±С‹С‚РёСЏ
 .eventName {
   text-align: center;
   border-bottom: 1px solid black;
   margin:0;
 }
+
+//РѕРїРёСЃР°РЅРёРµ СЃРѕР±С‹С‚РёСЏ
 .eventTextContent{
   text-align: left;
   margin:0;
   overflow: hidden;
 }
 
+//"Р»РёРїРєР°СЏ" РґР°С‚Р° РґРЅСЏ
 .sticky {
   position: fixed;
   top: 0;
@@ -149,9 +173,6 @@ $timeDivWidth: 41px;
   opacity: 0.8;
 }
 
-.hidden {
-  display: none;
-}
 
 
 
