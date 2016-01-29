@@ -133,6 +133,11 @@ $timeDivWidth: 41px;
   overflow: hidden;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
 //========================================================
 .popUp-bg {
   position: fixed;
