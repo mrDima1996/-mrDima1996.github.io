@@ -46,7 +46,7 @@ angular.module('dataSourse', [])
                 type: 'text',
                 color: 'default',
                 name: 'Test2',
-                content: '1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0',
+                content: '1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 jdhgkjd hfkdjf kj kdjhf kgdj fhkdjfh gkdjfh gkdjfh gkdjfh ert er ert ert er tert ert er ter tert 1 1 2 3 3 4 5 ',
                 time: {begin: 5, end: 7}
             },
             3: {

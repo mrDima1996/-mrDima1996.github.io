@@ -1,40 +1,29 @@
 @charset "UTF-8";
 #wrapper {
-  padding-top: 20px;
-  width: 100%;
-  overflow: hidden; }
+  padding-top: 20px; }
 
 .timeDiv {
   height: 100%;
-  padding-top: 46px;
+  margin-top: 46px;
   padding-left: 5px;
-  float: left;
-  width: 41px; }
-
-.diaryDiv {
-  height: 100%;
-  float: left;
-  width: 100%;
-  text-align: center; }
+  float: left; }
 
 #footer {
   padding: 15px;
-  width: 100%;
-  margin: 0 auto;
+  margin: 0;
   border: 1px solid black; }
 
 .prevWeek {
   float: left;
-  display: inline;
   cursor: pointer; }
 
 .nextWeek {
   float: right;
-  display: inline;
   cursor: pointer; }
 
 .yearText {
-  display: inline; }
+  text-align: center;
+  margin: 0; }
 
 .timeContainer {
   margin-bottom: 50px; }
@@ -42,17 +31,17 @@
 #content {
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: 41px;
-  overflow-x: scroll;
+  overflow-x: auto;
   border-right: 1px solid black;
   border-left: 1px solid black;
+  border-bottom: 1px solid black;
   width: calc(100% - 82px); }
   @media screen and (max-width: 400px) {
     #content {
       width: calc(100% - 41px); } }
 
 .week {
-  width: 1050px;
+  width: 1063px;
   margin: auto; }
 
 .hour {
@@ -60,20 +49,18 @@
   padding-top: 3px; }
 
 .day {
-  width: 150px;
-  vertical-align: top;
   display: table-cell;
   background-color: white;
   z-index: 1;
   border: 1px solid black; }
 
 .dayFooter {
+  height: 20px;
   border-bottom: 1px solid black;
-  width: 100%;
   overflow: hidden;
   background-color: white;
   z-index: 3;
-  height: 20px; }
+  text-align: center; }
 
 .clear {
   clear: both;
@@ -82,30 +69,29 @@
   /* ╤В╤А╨╛╨╣╨╜╨╛╨╣ ╨┐╤А╨╡╨╖╨╡╤А╨▓╨░╤В╨╕╨▓ ╨┤╨╗╤П IE */ }
 
 .event {
-  display: block;
   width: 150px;
   background-color: white;
-  overflow: hidden;
   z-index: 2;
   cursor: pointer;
   padding: 5px; }
 
 .eventInnerWrapper {
-  border: 1px solid black;
-  height: 100%; }
+  height: 100%;
+  border: 1px solid black; }
 
 .hidden {
   visibility: hidden; }
 
 .eventName {
+  height: 20px;
   text-align: center;
+  overflow: hidden;
   border-bottom: 1px solid black;
   margin: 0; }
 
 .eventTextContent {
-  text-align: left;
-  margin: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  height: calc(100% - 20px); }
 
 .sticky {
   position: fixed;

@@ -3,7 +3,7 @@
  */
 
 angular.module('app')
-    .directive('event',['schedule', function(schedule) {
+    .directive('event',['schedule', function() {
         return {
             scope: {
                 number: '=',

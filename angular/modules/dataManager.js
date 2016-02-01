@@ -27,6 +27,8 @@ angular.module('dataManager', ['dataSourse'])
         var localStorage = window.localStorage;
         var daysInWeek = []; //тут хранятся данные о текущей неделе
 
+
+
      return {
 
 

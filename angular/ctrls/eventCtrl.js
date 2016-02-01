@@ -14,13 +14,9 @@ angular.module('app')
     $scope.content = eventData.content; //контент
 
     $scope.displayContent = $scope.content;
-    if ($scope.content.length>42) $scope.displayContent = $scope.content.slice(0,42)+'...';
-    else $scope.displayContent = $scope.content; //обрезаем контент, если слишком большой
-
     //высота блока события. Расчитывается исходя из времени начала и конца.
     $scope.aHeight = schedule.getHeight($scope.duration);
     if (!$scope.aHeight) $scope.aHeight = '0px';
     else $scope.aHeight += 'px';
-        console.log($scope.aHeight);
 
 }]);
