@@ -4,15 +4,14 @@
 angular.module('app')
     .controller('dayCtrl', ['$scope', 'data', 'schedule', function($scope, data, schedule) {
 
-        $scope.dayFooterTopC = '0px';
+        $scope.updateDay = function() {
+            //номера событий в этот день
+            $scope.eventNumb = data.getNumbEventsOfTheDay($scope.date);
+            //расписание на этот день
+            $scope.schedule = schedule.createSchedule($scope.eventNumb);
+        };
 
-        //номера событий в этот день
-        $scope.eventNumb = data.getNumbEventsOfTheDay($scope.date);
-
-        //расписание на этот день
-        $scope.schedule = schedule.createSchedule($scope.eventNumb);
-
-
+        $scope.updateDay();
 
         //этот код нужен для создания "плавающих" номеров дней недели
         var dayFooters = document.getElementsByClassName('dayFooter');

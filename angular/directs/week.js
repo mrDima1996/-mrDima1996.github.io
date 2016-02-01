@@ -4,7 +4,6 @@
 angular.module("app")
     .directive('week', function(){
         return {
-            require: 'day',
             controller: 'weekCtrl',
             templateUrl: 'angular/htmls/week.html'
         }

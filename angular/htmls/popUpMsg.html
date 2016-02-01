@@ -1,1 +1,13 @@
-<div class="popUp-bg">{{message}}</div>
+<div class="popUp-bg closeTrigger"></div>
+<div class="popUpContent">
+    <h3>{{title}}  закладку</h3>
+    day {{source.day}} <br>
+    begin {{source.begin}}  <br>
+    end {{source.end}}  <br>
+    name {{source.name}}  <br>
+    content {{source.content}}  <br>
+    number {{source.number}} <br>
+    <button ng-click="update()" class="close-button closeTrigger">Отмена</button>
+</div>
+
+

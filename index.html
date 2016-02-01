@@ -8,7 +8,6 @@
     <script src="angular/modules/app.js"></script>
     <script src="angular/modules/dataSourse.js"></script>
     <script src="angular/modules/dataManager.js"></script>
-    <script src="angular/modules/popUpControl.js"></script>
     <script src="angular/directs/day.js"></script>
     <script src="angular/directs/event.js"></script>
     <script src="angular/directs/week.js"></script>
@@ -24,8 +23,7 @@
     <title>diary</title>
   </head>
   <body ng-app="app">
-    <!--div.container-fluid-->
-    <!--div#popup1(popup)-->
+    <div id="popUpWrapper" popup class="hidden"></div>
     <div id="wrapper">
       <div ng-controller="mainCtrl" class="diaryDiv">
         <div id="footer" class="row">
