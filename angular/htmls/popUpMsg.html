@@ -22,10 +22,10 @@
         <textarea class="contentField form-control" ng-model="source.content"></textarea>
 
     </div>
-    <div class="popUpButtons">
-        <button class="closeTrigger close-button btn">Отмена</button>
-        <button ng-if="source.number!=0" class="closeTrigger delete-button btn btn-danger">Удалить</button>
-        <button class="closeTrigger save-button btn btn-info">Сохранить</button>
+    <div class="popUpButtons row">
+        <div ng-class="source.number == '0' ? 'col-xs-6 col-sm-4' : 'col-xs-12 col-sm-4'"><button class="closeTrigger myButton btn btn-info ">Сохранить</button> </div>
+        <div class="col-xs-6 col-sm-4"> <button ng-if="source.number!=0" class="closeTrigger myButton btn btn-danger">Удалить</button> </div>
+        <div  class="col-xs-6 col-sm-4"> <button class="closeTrigger myButton btn" >Отмена</button> </div>
     </div>
 </div>
 

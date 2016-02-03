@@ -121,7 +121,7 @@
   opacity: 1;
   overflow: auto;
   padding: 15px 30px; }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     .popUp {
       width: 100%; } }
 
@@ -148,19 +148,15 @@
   margin-bottom: 20px; }
 
 .popUpButtons {
-  position: relative;
-  bottom: 0px; }
+  padding: 0px; }
 
-.save-button {
+.myButton {
+  width: 100%;
   float: right;
+  margin-top: 5px;
   margin-right: 20px; }
-
-.close-button {
-  float: right;
-  margin-right: 20px; }
-
-.delete-button {
-  float: right;
-  margin-right: 20px; }
+  @media screen and (max-width: 400px) {
+    .myButton {
+      margin-right: 0; } }
 
 /*# sourceMappingURL=style.css.map */
