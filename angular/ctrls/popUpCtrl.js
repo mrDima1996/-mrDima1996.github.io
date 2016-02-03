@@ -3,7 +3,7 @@
  */
 angular.module('app')
 .controller('popUpCtrl', ['$scope', function($scope){
-        $scope.source = {day: '??', number: 0, begin: '0', end: '0', name: 'Название', content: 'Комментратий'};
+        $scope.source = {day: '??', number: 0, begin: '0', end: '0', name: 'Название', content: 'Комментарий'};
         $scope.status = 'closed';
         $scope.userAction = 'none';
 
@@ -33,7 +33,7 @@ angular.module('app')
                     begin: '0',
                     end: '0',
                     name: 'Название',
-                    content: 'Комментратий'
+                    content: 'Комментарий'
                 };
                 $scope.status = 'open';
             })

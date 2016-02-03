@@ -185,7 +185,7 @@ $timeDivWidth: 41px;
 }
 
 .popUpHeader {
-
+  margin-top: 0;
 }
 
 .beginComboBox{
@@ -207,7 +207,6 @@ $timeDivWidth: 41px;
 .contentField {
   width: 100%;
   margin-top: 20px;
-  height: 40%;
   margin-bottom: 20px;
 }
 
@@ -219,7 +218,7 @@ $timeDivWidth: 41px;
   width: 100%;
   float: right;
   margin-top: 5px;
-  margin-right: 20px;
+  margin-left: 20px;
   @media screen and (max-width: 400px) {
     margin-right: 0;
   }
