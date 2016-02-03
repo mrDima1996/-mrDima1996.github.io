@@ -158,7 +158,7 @@ $timeDivWidth: 41px;
 
 .popUp {
   width: 500px;
-  height: 400px;
+  height: 420px;
   @media screen and (max-width: 500px ) {
     width: 100%;
   }
@@ -207,7 +207,7 @@ $timeDivWidth: 41px;
 .contentField {
   width: 100%;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .popUpButtons {

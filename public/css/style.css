@@ -108,7 +108,7 @@
 
 .popUp {
   width: 500px;
-  height: 400px;
+  height: 420px;
   position: fixed;
   top: 0;
   left: 0;
@@ -147,7 +147,7 @@
 .contentField {
   width: 100%;
   margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 0px; }
 
 .popUpButtons {
   padding: 0px; }
