@@ -156,9 +156,12 @@ $timeDivWidth: 41px;
   opacity: 0.8;
 }
 
-.popUpContent {
-  width: 400px;
+.popUp {
+  width: 500px;
   height: 400px;
+  @media screen and (max-width: 400px ) {
+    width: 100%;
+  }
   position: fixed;
   top: 0;
   left: 0;
@@ -170,8 +173,61 @@ $timeDivWidth: 41px;
   background-color: white;
   opacity: 1;
   overflow: auto;
+  padding: 15px 30px;
 }
 
+.popUpContent {
+  //height: 100%;
+}
 
+.centerText {
+  text-align: center;
+}
+
+.popUpHeader {
+
+}
+
+.beginComboBox{
+  width: 49%;
+  display: inline-block;
+
+}
+
+.endComboBox{
+  width: 49%;
+  display: inline-block;
+  text-align: right;
+}
+
+.nameField {
+  width: 100%;
+  margin-top: 20px;
+}
+.contentField {
+  width: 100%;
+  margin-top: 20px;
+  height: 40%;
+  margin-bottom: 20px;
+}
+
+.popUpButtons {
+  position: relative;
+  bottom: 0px;
+}
+
+.save-button{
+  float: right;
+  margin-right: 20px;
+}
+.close-button{
+  float: right;
+  margin-right: 20px;
+}
+
+.delete-button {
+  float: right;
+  margin-right: 20px;
+}
 
 

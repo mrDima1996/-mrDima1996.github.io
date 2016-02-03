@@ -15,21 +15,22 @@ angular.module('app')
                 element.on('click', function(event){
                     var target = angular.element(event.target);
                     var targetScope = target.scope();
-                    //Передаю данные во всплывающее окно
-                    popUpScope.$apply(function(){
-                        popUpScope.source = {
-                            day: scope.date,
-                            number: targetScope.number,
-                            begin: targetScope.begin,
-                            end: targetScope.end,
-                            name: targetScope.name,
-                            content: targetScope.content
-                        };
-                        popUpScope.status = 'open';
 
+                    //Передаю данные во всплывающее окно
+                    if (targetScope.number === undefined) popUpScope.pushBlankEvent(scope.date);
+                    else popUpScope.pushEvent({
+                        day: scope.date,
+                        number: targetScope.number,
+                        begin: targetScope.begin.toString(),
+                        end: targetScope.end.toString(),
+                        name: targetScope.name,
+                        content: targetScope.content
                     });
-                    //ловлю закрытие всплывающего окна
+
+                   //показываю окно
                     popUp.toggleClass('hidden');
+
+                    //ловлю закрытие всплывающего окна
                     var listener = popUpScope.$watch('status', function(newValue){
                        //data.setEvent(targetScope.number, popUpScope.source);
                         //targetScope.updateEvent();

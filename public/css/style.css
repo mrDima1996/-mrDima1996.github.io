@@ -106,8 +106,8 @@
   background-color: grey;
   opacity: 0.8; }
 
-.popUpContent {
-  width: 400px;
+.popUp {
+  width: 500px;
   height: 400px;
   position: fixed;
   top: 0;
@@ -119,6 +119,48 @@
   border: 1px solid black;
   background-color: white;
   opacity: 1;
-  overflow: auto; }
+  overflow: auto;
+  padding: 15px 30px; }
+  @media screen and (max-width: 400px) {
+    .popUp {
+      width: 100%; } }
+
+.centerText {
+  text-align: center; }
+
+.beginComboBox {
+  width: 49%;
+  display: inline-block; }
+
+.endComboBox {
+  width: 49%;
+  display: inline-block;
+  text-align: right; }
+
+.nameField {
+  width: 100%;
+  margin-top: 20px; }
+
+.contentField {
+  width: 100%;
+  margin-top: 20px;
+  height: 40%;
+  margin-bottom: 20px; }
+
+.popUpButtons {
+  position: relative;
+  bottom: 0px; }
+
+.save-button {
+  float: right;
+  margin-right: 20px; }
+
+.close-button {
+  float: right;
+  margin-right: 20px; }
+
+.delete-button {
+  float: right;
+  margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */

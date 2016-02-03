@@ -1,13 +1,32 @@
 <div class="popUp-bg closeTrigger"></div>
-<div class="popUpContent">
-    <h3>{{title}}  закладку</h3>
-    day {{source.day}} <br>
-    begin {{source.begin}}  <br>
-    end {{source.end}}  <br>
-    name {{source.name}}  <br>
-    content {{source.content}}  <br>
-    number {{source.number}} <br>
-    <button ng-click="update()" class="close-button closeTrigger">Отмена</button>
+<div class="popUp form-group" ng-switch on="source.number" >
+    <h3 ng-switch-when="0" class="popUpHeader centerText">Добавить  закладку</h3>
+    <h3 ng-switch-default class="popUpHeader centerText">Редактировать  закладку</h3>
+    <div class="popUpContent ">
+
+        <p class="centerText">  <b> {{convertDay(source.day.getDay())}}</b> {{'   ' + source.day.getDate()+'.'+(source.day.getMonth()+1)}} </p>
+
+        <div>
+            <div class="beginComboBox">
+                <label for="beginComboBox">Начало:</label> <br/>
+                <select name="beginComboBox" hour-combo-box ng-model="source.begin"></select>
+
+            </div>
+            <div class="endComboBox">
+                <label for="endComboBox">Конец:</label> <br/>
+                <select name="endComboBox"  hour-combo-box ng-model="source.end"></select>
+            </div>
+        </div>
+
+        <input class="nameField form-control" type="text" ng-model="source.name"/>
+        <textarea class="contentField form-control" ng-model="source.content"></textarea>
+
+    </div>
+    <div class="popUpButtons">
+        <button class="closeTrigger close-button btn">Отмена</button>
+        <button ng-if="source.number!=0" class="closeTrigger delete-button btn btn-danger">Удалить</button>
+        <button class="closeTrigger save-button btn btn-info">Сохранить</button>
+    </div>
 </div>
 
 
