@@ -3,21 +3,21 @@
  */
 angular.module('app')
     .controller('eventCtrl', ['$scope', 'data','schedule', function($scope, data, schedule) {
-   // получаем данные по этому событию
-    //при создании, мы передали сюда его номер
+    //РїРѕР»СѓС‡Р°РµРј РґР°РЅРЅС‹Рµ РїРѕ СЌС‚РѕРјСѓ СЃРѕР±С‹С‚РёСЋ
+    //РїСЂРё СЃРѕР·РґР°РЅРёРё, РјС‹ РїРµСЂРµРґР°Р»Рё СЃСЋРґР° РµРіРѕ РЅРѕРјРµСЂ
 
         $scope.updateEvent = function() {
             var eventData = data.getEvent($scope.number);
 
             if ( $scope.number ) $scope.show = 'visible';
             else $scope.show = 'hidden';
-            $scope.name = eventData.name; //заголовок
-            $scope.content = eventData.content; //контент
+            $scope.name = eventData.name; //Р·Р°РіРѕР»РѕРІРѕРє
+            $scope.content = eventData.content; //РєРѕРЅС‚РµРЅС‚
             $scope.begin = eventData.time.begin;
             $scope.end = eventData.time.end;
 
             $scope.displayContent = $scope.content;
-            //высота блока события. Расчитывается исходя из времени начала и конца.
+            //РІС‹СЃРѕС‚Р° Р±Р»РѕРєР° СЃРѕР±С‹С‚РёСЏ. Р Р°СЃС‡РёС‚С‹РІР°РµС‚СЃСЏ РёСЃС…РѕРґСЏ РёР· РІСЂРµРјРµРЅРё РЅР°С‡Р°Р»Р° Рё РєРѕРЅС†Р°.
             $scope.aHeight = schedule.getHeight($scope.duration);
             if ( !$scope.aHeight ) $scope.aHeight = '0px';
             else $scope.aHeight += 'px';

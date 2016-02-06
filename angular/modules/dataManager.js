@@ -11,7 +11,7 @@ angular.module('dataManager', ['dataSourse'])
                     return false;
                 }
             }
-            //Передаю все данные в localStorage
+            //РџРµСЂРµРґР°СЋ РІСЃРµ РґР°РЅРЅС‹Рµ РІ localStorage
             if(supports_html5_storage){
                 var localStorage = window.localStorage;
                 localStorage.clear();
@@ -21,30 +21,30 @@ angular.module('dataManager', ['dataSourse'])
 
 
             }
-            else alert('Ваш браузер не поддерживает localStorage');
+            else alert('Р’Р°С€ Р±СЂР°СѓР·РµСЂ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ localStorage');
         }
         moveDataToLocalStorage();
         var localStorage = window.localStorage;
-        var daysInWeek = []; //тут хранятся данные о текущей неделе
+        var daysInWeek = []; //С‚СѓС‚ С…СЂР°РЅСЏС‚СЃСЏ РґР°РЅРЅС‹Рµ Рѕ С‚РµРєСѓС‰РµР№ РЅРµРґРµР»Рµ
 
         /**
-         * возвращает данные о днях текущей недели
+         * РІРѕР·РІСЂР°С‰Р°РµС‚ РґР°РЅРЅС‹Рµ Рѕ РґРЅСЏС… С‚РµРєСѓС‰РµР№ РЅРµРґРµР»Рё
          * @returns {Array}
          */
         function GetCurrentWeek(date){
             var days = [];
 
-            //нам надо получить даты текущей недели. Так как в js неделя начинаеться с воскресения, а не с понедельника...
+            //РЅР°Рј РЅР°РґРѕ РїРѕР»СѓС‡РёС‚СЊ РґР°С‚С‹ С‚РµРєСѓС‰РµР№ РЅРµРґРµР»Рё. РўР°Рє РєР°Рє РІ js РЅРµРґРµР»СЏ РЅР°С‡РёРЅР°РµС‚СЊСЃСЏ СЃ РІРѕСЃРєСЂРµСЃРµРЅРёСЏ, Р° РЅРµ СЃ РїРѕРЅРµРґРµР»СЊРЅРёРєР°...
             var day = new Date(date);
 
-            //... то я сначала "откатываю" дату до понедельника этой недели...
+            //... С‚Рѕ СЏ СЃРЅР°С‡Р°Р»Р° "РѕС‚РєР°С‚С‹РІР°СЋ" РґР°С‚Сѓ РґРѕ РїРѕРЅРµРґРµР»СЊРЅРёРєР° СЌС‚РѕР№ РЅРµРґРµР»Рё...
             var dayOfTheWeek = day.getDay();
             while(dayOfTheWeek!=1) {
                 day.setDate(day.getDate()-1);
                 dayOfTheWeek = day.getDay();
             }
 
-            //... а потом перебираю ее до следующего понедельника...
+            //... Р° РїРѕС‚РѕРј РїРµСЂРµР±РёСЂР°СЋ РµРµ РґРѕ СЃР»РµРґСѓСЋС‰РµРіРѕ РїРѕРЅРµРґРµР»СЊРЅРёРєР°...
             do {
                 days.push({id: new Date(day), events: this.getNumbEventsOfTheDay(day)});
                 day.setDate(day.getDate()+1);
@@ -54,8 +54,8 @@ angular.module('dataManager', ['dataSourse'])
             return daysInWeek;
         }
         /**
-         * вернуть номера событий дня
-         * @param date Date- дата дня
+         * РІРµСЂРЅСѓС‚СЊ РЅРѕРјРµСЂР° СЃРѕР±С‹С‚РёР№ РґРЅСЏ
+         * @param date Date- РґР°С‚Р° РґРЅСЏ
          * @returns {Array|events|{}|*}
          */
         function GetNumbEventsOfTheDay(date){
@@ -66,8 +66,8 @@ angular.module('dataManager', ['dataSourse'])
         }
 
         /**
-         * вернуть событие по айдишнику
-         * @param id - номер события
+         * РІРµСЂРЅСѓС‚СЊ СЃРѕР±С‹С‚РёРµ РїРѕ Р°Р№РґРёС€РЅРёРєСѓ
+         * @param id - РЅРѕРјРµСЂ СЃРѕР±С‹С‚РёСЏ
          * @returns {*}
          */
         function GetEvent(id) {
@@ -75,8 +75,8 @@ angular.module('dataManager', ['dataSourse'])
         }
 
         /**
-         * вернуть продолжительность события
-         * @param id - номер события
+         * РІРµСЂРЅСѓС‚СЊ РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ СЃРѕР±С‹С‚РёСЏ
+         * @param id - РЅРѕРјРµСЂ СЃРѕР±С‹С‚РёСЏ
          */
         function GetEventTimeData(id){
             var event = JSON.parse(localStorage.eventList)[id];
@@ -86,11 +86,55 @@ angular.module('dataManager', ['dataSourse'])
             return {begin: eBegin, duration: eDuration, end: eEnd}
         }
 
+        /**
+         * РѕР±РЅРѕРІРёС‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ РїСЂРѕ СЃРѕР±С‹С‚РёРµ
+         * @param id - РЅРѕРјРµСЂ СЃРѕР±С‹С‚РёСЏ
+         * @param eventData
+         * @constructor
+         */
         function SetEvent(id, eventData) {
+            eventData.time.begin = parseInt(eventData.time.begin);
+            eventData.time.end = parseInt(eventData.time.end);
             var localData = JSON.parse(localStorage.eventList);
             localData[id] = eventData;
-            console.log(id + '   '+ localData);
+            //console.log(id + '   '+ localData);
             localStorage.eventList = JSON.stringify(localData);
+        }
+
+        function SetDayEvents(date, newData) {
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDate();
+            var localData = JSON.parse(localStorage.dateList);
+            localData[year][month][day].events = newData;
+            localStorage.dateList = JSON.stringify(localData);
+        }
+
+        /**
+         * РЈРґР°Р»РёС‚СЊ РґР°РЅРЅС‹Рµ РїСЂРѕ СЃРѕР±С‹С‚РёРµ
+         * @param id - РЅРѕРјРµСЂ СЃРѕР±С‹С‚РёСЏ
+         * @constructor
+         */
+        function DeleteEvent(id) {
+            var localData = JSON.parse(localStorage.eventList);
+            localData[id] = null;
+            localStorage.eventList = JSON.stringify(localData);
+        }
+
+        /**
+         * СѓРґР°Р»СЏРµС‚ СЃРѕР±С‹С‚РёРµ РёР· РґРЅСЏ
+         * @param dayDate - Date РґР°С‚Р° РґРЅСЏ
+         * @param eventId - РЅРѕРјРµСЂ СѓРґР°Р»СЏРµРјРѕРіРѕ СЃРѕР±С‹С‚РёСЏ
+         * @constructor
+         */
+        function DeleteEventFromDay(dayDate, eventId){
+            var events = GetNumbEventsOfTheDay(dayDate);
+            var eventNumb;
+            for (var i =0; i<=events.length; i++) {
+                if (events[i] == eventId) eventNumb = i;
+            }
+            events.splice(eventNumb, 1);
+            SetDayEvents(dayDate, events);
 
         }
 
@@ -99,6 +143,8 @@ angular.module('dataManager', ['dataSourse'])
          getNumbEventsOfTheDay: GetNumbEventsOfTheDay,
          getEvent: GetEvent,
          getEventTimeData: GetEventTimeData,
-         setEvent: SetEvent
+         setEvent: SetEvent,
+         deleteEvent: DeleteEvent,
+         deleteEventFromDay: DeleteEventFromDay
      }
     }]);

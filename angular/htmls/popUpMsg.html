@@ -4,28 +4,37 @@
     <h3 ng-switch-default class="popUpHeader centerText">Редактировать  закладку</h3>
     <div class="popUpContent ">
 
-        <p class="centerText">  <b> {{convertDay(source.day.getDay())}}</b> {{'   ' + source.day.getDate()+'.'+(source.day.getMonth()+1)}} </p>
+        <p class="centerText">
+            <b> {{convertDay(source.day.getDay())}}</b> {{'   ' + source.day.getDate()+'.'+(source.day.getMonth()+1)}}
+        </p>
 
         <div>
             <div class="beginComboBox">
                 <label for="beginComboBox">Начало:</label> <br/>
-                <select name="beginComboBox" hour-combo-box ng-model="source.begin"></select>
-
+                <select id="beginComboBox" name="beginComboBox" hour-combo-box ng-model="source.time.begin"></select>
             </div>
             <div class="endComboBox">
                 <label for="endComboBox">Конец:</label> <br/>
-                <select name="endComboBox"  hour-combo-box ng-model="source.end"></select>
+                <select id="endComboBox" name="endComboBox"  hour-combo-box ng-model="source.time.end"></select>
             </div>
         </div>
 
         <input class="nameField form-control" type="text" ng-model="source.name"/>
         <textarea rows="5" class="contentField form-control" ng-model="source.content"></textarea>
-
     </div>
+
     <div class="popUpButtons row">
-        <div ng-class="source.number == '0' ? 'col-xs-6 col-sm-4' : 'col-xs-12 col-sm-4'"><button class="closeTrigger myButton btn btn-info ">Сохранить</button> </div>
-        <div class="col-xs-6 col-sm-4"> <button ng-if="source.number!=0" class="closeTrigger myButton btn btn-danger">Удалить</button> </div>
-        <div  class="col-xs-6 col-sm-4"> <button class="closeTrigger myButton btn" >Отмена</button> </div>
+        <div ng-click="userAction='save'" ng-class="source.number == '0' ? 'col-xs-6 col-sm-4' : 'col-xs-12 col-sm-4'">
+            <button class="closeTrigger myButton btn btn-info ">Сохранить</button>
+        </div>
+
+        <div ng-click="userAction='delete'" class="col-xs-6 col-sm-4">
+            <button ng-if="source.number!=0" class="closeTrigger myButton btn btn-danger">Удалить</button>
+        </div>
+
+        <div ng-click="userAction='none'" class="col-xs-6 col-sm-4">
+            <button class="closeTrigger myButton btn" >Отмена</button>
+        </div>
     </div>
 </div>
 

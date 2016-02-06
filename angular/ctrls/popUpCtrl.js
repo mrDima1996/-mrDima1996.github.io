@@ -3,7 +3,7 @@
  */
 angular.module('app')
 .controller('popUpCtrl', ['$scope', function($scope){
-        $scope.source = {day: '??', number: 0, begin: '0', end: '0', name: 'Название', content: 'Комментарий'};
+        $scope.source = {day: '??', number: 0, time: {begin: '0', end: '0'}, name: 'Название', content: 'Комментарий'};
         $scope.status = 'closed';
         $scope.userAction = 'none';
 
@@ -14,10 +14,10 @@ angular.module('app')
         $scope.pushEvent = function(data) {
             $scope.$apply(function(){
                 //перевожу время в строку, чтобы подвязать с select
-                data.begin = data.begin.toString();
-                data.end = data.end.toString();
+                data.begin = data.time.begin.toString();
+                data.end = data.time.end.toString();
                 $scope.source = data;
-                $scope.status = 'open';
+                $scope.userAction = 'none';
             })
 
         };
@@ -30,12 +30,14 @@ angular.module('app')
                 $scope.source = {
                     day: day,
                     number: 0,
-                    begin: '0',
-                    end: '0',
+                    time: {
+                        begin: '0',
+                        end: '1'
+                    },
                     name: 'Название',
                     content: 'Комментарий'
                 };
-                $scope.status = 'open';
+                $scope.userAction = 'none';
             })
         };
         /**
@@ -70,4 +72,12 @@ angular.module('app')
                     break;
             }
         }
+
+        $scope.$watch('source.time.begin', function(newValue, oldValue){
+           if (parseInt(newValue)>=parseInt($scope.source.time.end)) $scope.source.time.begin = oldValue;
+        });
+
+        $scope.$watch('source.time.end', function(newValue, oldValue){
+            if (parseInt(newValue)<=parseInt($scope.source.time.begin)) $scope.source.time.end = oldValue;
+        });
     }]);

@@ -3,8 +3,6 @@
  */
 angular.module('app')
     .controller('weekCtrl', ['$scope', 'data', function($scope, data){
-
-
-         // создает семь дивов (дней), и каждому передает его номер
+        // СЃРѕР·РґР°РµС‚ СЃРµРјСЊ РґРёРІРѕРІ (РґРЅРµР№), Рё РєР°Р¶РґРѕРјСѓ РїРµСЂРµРґР°РµС‚ РµРіРѕ РЅРѕРјРµСЂ
         $scope.daysList = data.getCurrentWeek($scope.currentDate);
     }]);

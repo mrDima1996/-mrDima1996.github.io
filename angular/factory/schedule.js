@@ -2,18 +2,19 @@
  * Created by mrDima on 28.01.2016.
  */
 
-//ýòîò ìîäóëü íåîáõîäèì äëÿ âñåõ ðàñ÷åòîâ îòíîñèòåëüíî îòîáðàæåíèÿ ñîáûòèé íà ðàñïèñàíèè
-//Ñþäà âõîäÿò:
-//-ðàñ÷åò âûñîòû ñîáûòèÿ, â çàâèñèìîñòè îò åãî ïðîäîëæèòåëüíîñòè
-//-È ñîñòàâëåíèå î÷åðåäíîñòè ñîáûòèé, èñõîäÿ èç èõ íîìåðîâ.
+//ÑÑ‚Ð¾Ñ‚ Ð¼Ð¾Ð´ÑƒÐ»ÑŒ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼ Ð´Ð»Ñ Ð²ÑÐµÑ… Ñ€Ð°ÑÑ‡ÐµÑ‚Ð¾Ð² Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ð¹ Ð½Ð° Ñ€Ð°ÑÐ¿Ð¸ÑÐ°Ð½Ð¸Ð¸
+//Ð¡ÑŽÐ´Ð° Ð²Ñ…Ð¾Ð´ÑÑ‚:
+//-Ñ€Ð°ÑÑ‡ÐµÑ‚ Ð²Ñ‹ÑÐ¾Ñ‚Ñ‹ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ, Ð² Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ ÐµÐ³Ð¾ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚Ð¸
+//-Ð˜ ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð½Ð¾ÑÑ‚Ð¸ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ð¹, Ð¸ÑÑ…Ð¾Ð´Ñ Ð¸Ð· Ð¸Ñ… Ð½Ð¾Ð¼ÐµÑ€Ð¾Ð².
 angular.module('app')
     .factory('schedule', ['data', function(data){
-        //âîò òóò ÿ ïîëó÷àþ ñòàíäàðòíóþ âûñîòó ñîáûòèÿ íà îäèí ÷àñ.
-        // Òàê êàê îíî ìîæåò áûòü èçìåíåíî ÿ ðåøèë äèíàìè÷åñêè ïîäãðóæàòü åãî èç ñòèëåé
+        //Ð²Ð¾Ñ‚ Ñ‚ÑƒÑ‚ Ñ Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÑŽ ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½ÑƒÑŽ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ Ð½Ð° Ð¾Ð´Ð¸Ð½ Ñ‡Ð°Ñ.
+        // Ð¢Ð°Ðº ÐºÐ°Ðº Ð¾Ð½Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¾ Ñ Ñ€ÐµÑˆÐ¸Ð» Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¿Ð¾Ð´Ð³Ñ€ÑƒÐ¶Ð°Ñ‚ÑŒ ÐµÐ³Ð¾ Ð¸Ð· ÑÑ‚Ð¸Ð»ÐµÐ¹
         var basicH = parseInt(getComputedStyle(document.getElementsByClassName('timeContainer')[0]).marginBottom)+20;
-        if (basicH === undefined) {basicH = 70; alert('Âûñîòà áëîêà íå îïðåäåëåíà. Âûñòàâëåííî çíà÷åíèå ïî óìîë÷àíèþ')};
-        var footerInitialTop;
-
+        if (basicH === undefined) {
+            basicH = 70;
+            alert('ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ñ Ð±Ð°Ð·Ð¾Ð²Ð¾Ð¹ Ð²Ñ‹ÑÐ¾Ñ‚Ñ‹ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ñ‡Ð°ÑÐ°. Ð£Ð±ÐµÐ´Ð¸Ñ‚ÐµÑÑŒ, Ñ‡Ñ‚Ð¾ ÐºÐ»Ð°ÑÑ timeContainer Ð¸Ð¼ÐµÐµÑ‚ Ñ…Ð°Ñ€Ð°ÐºÑ‚ÐµÑ€Ð¸ÑÑ‚Ð¸ÐºÑƒ marginBottom');
+        }
         /**
          *
          * @param duration - {number}
@@ -23,50 +24,118 @@ angular.module('app')
             return duration*basicH;
         }
 
-        /**
-         * ôóíêöèÿ ðàñ÷èòûâàåò ðàñïèñàíèÿ äíÿ (ãäå åñòü ñîáûòèå, à ãäå - ïóñòîå ìåñòî)
-         * @param eventNumb {Array} - ìàññèâ ñ íîìåðàìè ñîáûòèé â ýòîò äåíü
-         * @returns {Array}
-         */
-        function createSchedule(eventNumb){
-            //áåðåì äàííûå î âðåìåíè ñîáûòèé (íà÷àëî, ïðîäîëæèòåëüíîñòü, êîíåö)
-            var dayEvents = [];
+        function getDayEventData(eventNumb) {
             var singleEventNumb;
+            var dayEvents = [];
+
+            //Ð±ÐµÑ€ÐµÐ¼ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ð¹ (Ð½Ð°Ñ‡Ð°Ð»Ð¾, Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ, ÐºÐ¾Ð½ÐµÑ†)
             for (var event in  eventNumb){
-                singleEventNumb = eventNumb[event]; //íîìåð ñîáûòèÿ
+                singleEventNumb = eventNumb[event]; //Ð±ÐµÑ€ÐµÐ¼ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ
                 dayEvents.push({eNumber: singleEventNumb, timeData: data.getEventTimeData(singleEventNumb)})
             }
-            singleEventNumb = '';
+            singleEventNumb = null;
+            return dayEvents;
+        }
 
-            //ñîðòèðóåì ñîáûòèÿ â ïîðÿäêå âîçðàñòàíèÿ âðåìåíè íà÷àëà
+        /**
+         * Ñ„Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÑ‚ Ð¾Ð±ÑŠÐµÐºÑ‚ Ñ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸ÑÐ¼Ð¸ Ñ‚Ð¸Ð¿Ð° {id ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ, {Ð½Ð°Ñ‡Ð°Ð»Ð¾, ÐºÐ¾Ð½ÐµÑ†}} Ð¸ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€ÑƒÐµÑ‚ Ð¿Ð¾ "Ð½Ð°Ñ‡Ð°Ð»Ñƒ"
+         * @param events
+         * @returns {*}
+         */
+        function sortEvents(dayEvents) {
+
             dayEvents.sort(function(a, b) {
                 if(a.timeData.begin == b.timeData.begin) return 0;
                 if(a.timeData.begin > b.timeData.begin) return 1;
                 if(a.timeData.begin < b.timeData.begin) return -1;
-                return 0; // o_O â íåçàâèñèìîñòè îò äðóãèõ ñâîéñòâ ñ÷èòàåì ÷òî îáúåêòû ðàâíû
+                return 0; // o_O Ð² Ð½ÐµÐ·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑÐ²Ð¾Ð¹ÑÑ‚Ð² ÑÑ‡Ð¸Ñ‚Ð°ÐµÐ¼ Ñ‡Ñ‚Ð¾ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹ Ñ€Ð°Ð²Ð½Ñ‹
             });
+            return dayEvents;
+        }
+
+        /**
+         * Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÑ‚ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ Ð»Ð¸ Ð½Ð¾Ð²Ð¾Ðµ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ñ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¼ Ñ€Ð°ÑÐ¿Ð¸ÑÐ°Ð½Ð¸ÐµÐ¼
+         * @param eventNumb
+         * @param newEvent
+         * @returns {boolean} - true, ÐµÑÐ»Ð¸ Ð½Ð¾Ð²Ð¾Ðµ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ð½Ð¸ÐºÐ°Ðº Ð½Ðµ Ð½Ð°Ð»Ð°Ð·Ð¸Ñ‚ Ð½Ð° Ð¾ÑÑ‚Ð°Ð»ÑŒÑ‹Ðµ
+         */
+        function Ð¡heckCompNewEvent(eventNumb, newEvent) {
+            var dayEvents = getDayEventData(eventNumb);
+            dayEvents = sortEvents(dayEvents);
+            var localEvent;
+            var bBeginDiff;
+            var eEndDiff;
+            var eBeginDiff;
+            var bEndDiff;
+            for (event in dayEvents) {
+                localEvent = dayEvents[parseInt(event)];
+                if (localEvent.eNumber != newEvent.number) {
+                    // Ð²ÑÐµ Ñ€Ð°Ð·Ð½Ð¸Ñ†Ñ‹ Ð¼ÐµÐ¶Ð´Ñƒ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ð°Ð¼Ð¸ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð·Ð½Ð°ÐºÐ° (Ð»Ð¸Ð±Ð¾ Ð±Ð¾Ð»ÑŒÑˆÐµ, Ð»Ð¸Ð±Ð¾ Ð¼ÐµÐ½ÑŒÑˆÐµ)
+                    //Ñ‚Ð¾Ð³Ð´Ð° ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ Ð³Ð°Ñ€Ð°Ð½Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾ Ð½Ðµ Ð¿ÐµÑ€ÐµÑÐµÐºÐ°ÑŽÑ‚ÑÑ.
+
+                    bBeginDiff = (localEvent.timeData.begin < newEvent.time.begin);
+                    eEndDiff = (localEvent.timeData.end < newEvent.time.end)
+                    if (bBeginDiff != bBeginDiff) return false
+
+
+
+                    //ÐµÑÐ»Ð¸ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ð½Ð°Ñ‡Ð¸Ð½Ð°ÐµÑ‚ÑÑ, ÐºÐ¾Ð³Ð´Ð° Ð·Ð°ÐºÐ°Ð½Ñ‡Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ð´Ñ€ÑƒÐ³Ð¾Ðµ, Ñ‚Ð¾ Ð¾Ð´Ð½Ð° Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð½Ðµ Ð¿Ñ€Ð¾Ð²Ð¾Ð´Ð¸Ñ‚ÑÑ.
+                    if (localEvent.timeData.end == newEvent.time.begin) {
+                        bEndDiff = (localEvent.timeData.begin < newEvent.time.end);
+                        if (bEndDiff != bBeginDiff) return false;
+                    }
+                    // Ñ‚Ð¾ Ð¶Ðµ ÑÐ°Ð¼Ð¾Ðµ, ÐµÑÐ»Ð¸ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ð·Ð°ÐºÐ°Ð½Ñ‡Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ð¸ ÑÑ€Ð°Ð·Ñƒ Ð¿Ð¾ÑÐ»Ðµ Ð½ÐµÐ³Ð¾ Ð½Ð°Ñ‡Ð¸Ð½Ð°ÐµÑ‚ÑÑ Ð´Ñ€ÑƒÐ³Ð¾Ðµ.
+                    else if (localEvent.timeData.begin == newEvent.time.end) {
+                        eBeginDiff = (localEvent.timeData.end < newEvent.time.begin);
+                        if (eBeginDiff != bBeginDiff) return false;
+                    }
+                    else {
+                        eBeginDiff = (localEvent.timeData.end < newEvent.time.begin);
+                        bEndDiff = (localEvent.timeData.begin < newEvent.time.end);
+
+
+                        if ( (bBeginDiff != eEndDiff) || (eBeginDiff != bEndDiff) || (bBeginDiff != bEndDiff) ) {
+                           /* console.log(localEvent.eNumber + ' ' + newEvent.number);
+                            console.log(localEvent.timeData.end + '  ' + newEvent.time.begin);
+                            console.log('bB: ' + bBeginDiff + ' eE: ' + eEndDiff + ' eB: ' + eBeginDiff + ' bE: ' + bEndDiff);*/
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        /**
+         * Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ñ€Ð°ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÑ‚ Ñ€Ð°ÑÐ¿Ð¸ÑÐ°Ð½Ð¸Ñ Ð´Ð½Ñ (Ð³Ð´Ðµ ÐµÑÑ‚ÑŒ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ, Ð° Ð³Ð´Ðµ - Ð¿ÑƒÑÑ‚Ð¾Ðµ Ð¼ÐµÑÑ‚Ð¾)
+         * @param eventNumb {Array} - Ð¼Ð°ÑÑÐ¸Ð² Ñ Ð½Ð¾Ð¼ÐµÑ€Ð°Ð¼Ð¸ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ð¹ Ð² ÑÑ‚Ð¾Ñ‚ Ð´ÐµÐ½ÑŒ
+         * @returns {Array}
+         */
+        function createSchedule(eventNumb){
+
+            var dayEvents = getDayEventData(eventNumb);
+            dayEvents = sortEvents(dayEvents);
 
             var singleEvent;
             var pointer = 0;
 
-            var schedule = []; //ñîáñòâåííî, ðàñïèñàíèå
-            //îíî äîëæíî èìåòü ñòîëüêî ýëåìåíòîâ, ñêîëüêî ïîòåíöèàëüíûõ "tr" â òàáëèöå
-            // è îí äîëæåí ñîäåðæàòü äëèòåëüíîñòü êàæäîãî ýëåìåíòà, ÷òîáû ÿ ñìîã âûñ÷èòàòü åãî âûñîòó
-
+            var schedule = []; //ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½Ð¾, Ñ€Ð°ÑÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ
+            //Ð¾Ð½Ð¾ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð¸Ð¼ÐµÑ‚ÑŒ ÑÑ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð², ÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ð¿Ð¾Ñ‚ÐµÐ½Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ñ… "tr" Ð² Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ðµ
+            // Ð¸ Ð¾Ð½ Ð´Ð¾Ð»Ð¶ÐµÐ½ ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ Ð´Ð»Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ ÑÐ¼Ð¾Ð³ Ð²Ñ‹ÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ ÐµÐ³Ð¾ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ
 
             for (event in dayEvents){
-                singleEvent = dayEvents[parseInt(event)]; //ñîáûòèå
+                singleEvent = dayEvents[parseInt(event)];//ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ
 
-                if (pointer != singleEvent.timeData.begin) { //åñëè óêàçàòåëü íå ñîâïàäàåò ñ íà÷àëîì î÷åðåäíîãî ñîáûòèÿ...
-                    //...òî ìû âñòàâëÿåì ïóñòîå ïîëå äî ñàìîãî íà÷àëà î÷åðåäíîãî ñîáûòèÿ
+                if (pointer != singleEvent.timeData.begin) { //ÐµÑÐ»Ð¸ ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ðµ ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÐµÑ‚ Ñ Ð½Ð°Ñ‡Ð°Ð»Ð¾Ð¼ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð½Ð¾Ð³Ð¾ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ...
+                    //...Ñ‚Ð¾ Ð¼Ñ‹ Ð²ÑÑ‚Ð°Ð²Ð»ÑÐµÐ¼ Ð¿ÑƒÑÑ‚Ð¾Ðµ Ð¿Ð¾Ð»Ðµ Ð´Ð¾ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð½Ð°Ñ‡Ð°Ð»Ð° Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð½Ð¾Ð³Ð¾ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ
                     schedule.push({event: 0, duration: dayEvents[parseInt(event)].timeData.begin-pointer});
                     pointer = dayEvents[parseInt(event)].timeData.begin;
 
-                    // è äîáàâëÿåì ñàìî ñîáûòèå
+                    // Ð¸ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ ÑÐ°Ð¼Ð¾ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ
                     schedule.push({event: singleEvent.eNumber, duration: singleEvent.timeData.duration});
                     pointer = singleEvent.timeData.end;
                 }else {
-                    // ... òî äîáàâèòü åãî "êàê åñòü"
+                    // ... Ñ‚Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐµÐ³Ð¾ "ÐºÐ°Ðº ÐµÑÑ‚ÑŒ"
                     schedule.push({event: singleEvent.eNumber, duration: singleEvent.timeData.duration});
                     pointer = singleEvent.timeData.end;
                 }
@@ -77,10 +146,13 @@ angular.module('app')
 
             return schedule;
         }
+
+
         return {
-            //ïîëó÷èòü âûñîòó áëîêà ñîáûòèÿ
+            //Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ Ð±Ð»Ð¾ÐºÐ° ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ
             getHeight: getHeight,
-            //Ñîçäàòü î÷åðåäíîñòü ïóñòíûõ è çàïîëíåííûõ ñîáûòèé äëÿ êîððåêòíîãî ðàñìåùåíèÿ
-            createSchedule:createSchedule
+            //Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð½Ð¾ÑÑ‚ÑŒ Ð¿ÑƒÑÑ‚Ð½Ñ‹Ñ… Ð¸ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ñ‹Ñ… ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ð¹ Ð´Ð»Ñ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ð³Ð¾ Ñ€Ð°ÑÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ
+            createSchedule:createSchedule,
+            checkCompNewEvent: Ð¡heckCompNewEvent
         }
     }]);
