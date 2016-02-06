@@ -17,9 +17,53 @@ angular.module('app')
             popUpScope = angular.element(DOMonject).scope();
         }
 
+        /**
+         * Обрабатывает нажатие пользователем на любую кнопку
+         * и вызывает соответствующие функции для изменения данных
+         * @returns {boolean} - возвращает true, если окно можно закрывать и
+         * false, если пользователь набаранил и что-то надо поменять.
+         */
+        function actionHandler() {
+            var dayDate =  popUpScope.source.day;
+            var dayEvents = data.getNumbEventsOfTheDay(dayDate);
+            switch (popUpScope.userAction) {
+                case 'save':
+                    // если новое событие не накладывается на другие
+                    var compatible = schedule.checkCompNewEvent(dayEvents, popUpScope.source);
+                    if (compatible) {
+                        if (popUpScope.source.number != 0) {
+                            data.setEvent(popUpScope.source.number, popUpScope.source);
+                            return true;
+                        }
+                        else {
+                            data.createNewEvent(popUpScope.source);
+                            data.pushEventToDay(popUpScope.source.day, popUpScope.source.number);
+                            return true;
+                        }
+                    }
+                    else {
+                        alert('В это время уже что-то запланировано!');
+                        return false;
+                    }
 
-        function actionHandler(targetScope, dayScope) {
-
+                    break;
+                case 'delete':
+                    var agree = confirm('Вы хотите удалить событие "' + popUpScope.source.name +'"?');
+                    if (agree) {
+                        data.deleteEventFromDay(dayDate, popUpScope.source.number);
+                        data.deleteEvent(popUpScope.source.number);
+                        return true;
+                    }
+                    else {
+                        console.log('delete denied')
+                        return false;
+                    }
+                    break;
+                case 'none':
+                    console.log('none');
+                    return true;
+                    break;
+            }
         }
 
         /**
@@ -47,49 +91,21 @@ angular.module('app')
 
             //ловлю закрытие всплывающего окна
             var listener = popUpScope.$watch('status', function(){
-                //обработка возможных ложных срабатываний
-                if (popUpScope.status!='open') {
-                    switch (popUpScope.userAction) {
-                        case 'save':
-                            // если новое событие не накладывается на другие
-                            var compatible = schedule.checkCompNewEvent(dayScope.eventNumb, popUpScope.source);
-                            if (compatible) {
-                                data.setEvent(targetScope.number, popUpScope.source);
-                                targetScope.updateEvent();
-                                dayScope.updateDay();
-                                listener(); //сбрасываю watcher.
-                                popUp.toggleClass('hidden'); // все в порядке, закрываю всплывающее окно.
-                            }
-                             else {
-                                console.log('mistake schedule'); //если ошибка, то не закрываю окно
-                                popUpScope.status = 'open';
-                            }
-
-                            break;
-                        case 'delete':
-                            var agree = confirm('Вы хотите удалить событие "' + targetScope.name +'"?');
-                            if (agree) {
-                                data.deleteEventFromDay(dayScope.date, targetScope.number);
-                                data.deleteEvent(targetScope.number);
-                                dayScope.updateDay();
-                                listener(); //сбрасываю watcher.
-                                popUp.toggleClass('hidden');// все в порядке, закрываю всплывающее окно.
-                            }
-                            else {
-                                console.log('abort delete'); //если пользователь передумал, то не закрываю окно
-                                popUpScope.status = 'open';
-                            }
-                            break;
-                        case 'none':
-                            console.log('none');
-                            listener(); //сбрасываю watcher.
-                            popUp.toggleClass('hidden'); // все в порядке, закрываю всплывающее окно.
-                            break;
+                if (popUpScope.status!='open') { //обработка возможных ложных срабатываний
+                    if (actionHandler(targetScope, dayScope.date)){
+                        listener(); //сбрасываю watcher.
+                        popUp.toggleClass('hidden'); // все в порядке, закрываю всплывающее окно.
+                        dayScope.updateDay();
+                        //targetScope.updateEvent();
+                    }
+                    else {
+                        console.log('mistake schedule'); //если ошибка, то не закрываю окно
+                        popUpScope.status = 'open';
                     }
 
                 }
             });
-        };
+        }
 
 
         return {

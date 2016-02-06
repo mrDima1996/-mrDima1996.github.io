@@ -69,36 +69,37 @@ angular.module('app')
             var bEndDiff;
             for (event in dayEvents) {
                 localEvent = dayEvents[parseInt(event)];
-                if (localEvent.eNumber != newEvent.number) {
-                    // все разницы между координатами должны быть одного знака (либо больше, либо меньше)
-                    //тогда события гарантированно не пересекаются.
+                if ( localEvent !== null ) { // мало ли.
+                    if ( localEvent.eNumber != newEvent.number ) {
+                        // все разницы между координатами должны быть одного знака (либо больше, либо меньше)
+                        //тогда события гарантированно не пересекаются.
 
-                    bBeginDiff = (localEvent.timeData.begin < newEvent.time.begin);
-                    eEndDiff = (localEvent.timeData.end < newEvent.time.end)
-                    if (bBeginDiff != bBeginDiff) return false
-
-
-
-                    //если событие начинается, когда заканчивается другое, то одна проверка не проводится.
-                    if (localEvent.timeData.end == newEvent.time.begin) {
-                        bEndDiff = (localEvent.timeData.begin < newEvent.time.end);
-                        if (bEndDiff != bBeginDiff) return false;
-                    }
-                    // то же самое, если событие заканчивается и сразу после него начинается другое.
-                    else if (localEvent.timeData.begin == newEvent.time.end) {
-                        eBeginDiff = (localEvent.timeData.end < newEvent.time.begin);
-                        if (eBeginDiff != bBeginDiff) return false;
-                    }
-                    else {
-                        eBeginDiff = (localEvent.timeData.end < newEvent.time.begin);
-                        bEndDiff = (localEvent.timeData.begin < newEvent.time.end);
+                        bBeginDiff = (localEvent.timeData.begin < newEvent.time.begin);
+                        eEndDiff = (localEvent.timeData.end < newEvent.time.end);
+                        if ( bBeginDiff != bBeginDiff ) return false;
 
 
-                        if ( (bBeginDiff != eEndDiff) || (eBeginDiff != bEndDiff) || (bBeginDiff != bEndDiff) ) {
-                           /* console.log(localEvent.eNumber + ' ' + newEvent.number);
-                            console.log(localEvent.timeData.end + '  ' + newEvent.time.begin);
-                            console.log('bB: ' + bBeginDiff + ' eE: ' + eEndDiff + ' eB: ' + eBeginDiff + ' bE: ' + bEndDiff);*/
-                            return false;
+                        //если событие начинается, когда заканчивается другое, то одна проверка не проводится.
+                        if ( localEvent.timeData.end == newEvent.time.begin ) {
+                            bEndDiff = (localEvent.timeData.begin < newEvent.time.end);
+                            if ( bEndDiff != bBeginDiff ) return false;
+                        }
+                        // то же самое, если событие заканчивается и сразу после него начинается другое.
+                        else if ( localEvent.timeData.begin == newEvent.time.end ) {
+                            eBeginDiff = (localEvent.timeData.end < newEvent.time.begin);
+                            if ( eBeginDiff != bBeginDiff ) return false;
+                        }
+                        else {
+                            eBeginDiff = (localEvent.timeData.end < newEvent.time.begin);
+                            bEndDiff = (localEvent.timeData.begin < newEvent.time.end);
+
+
+                            if ( (bBeginDiff != eEndDiff) || (eBeginDiff != bEndDiff) || (bBeginDiff != bEndDiff) ) {
+                                /* console.log(localEvent.eNumber + ' ' + newEvent.number);
+                                 console.log(localEvent.timeData.end + '  ' + newEvent.time.begin);
+                                 console.log('bB: ' + bBeginDiff + ' eE: ' + eEndDiff + ' eB: ' + eBeginDiff + ' bE: ' + bEndDiff);*/
+                                return false;
+                            }
                         }
                     }
                 }

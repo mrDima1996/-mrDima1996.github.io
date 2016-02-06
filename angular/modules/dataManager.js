@@ -135,7 +135,31 @@ angular.module('dataManager', ['dataSourse'])
             }
             events.splice(eventNumb, 1);
             SetDayEvents(dayDate, events);
+        }
 
+        function GetEventsAmount() {
+            var localData = JSON.parse(localStorage.eventList);
+            return localData.eventAmount;
+        }
+
+        function SetEventsAmount(numb) {
+            var localData = JSON.parse(localStorage.eventList);
+            localData.eventAmount = numb;
+            localStorage.eventList = JSON.stringify(localData);
+        }
+
+        function CreateNewEvent(eventData) {
+            var numb = GetEventsAmount();
+            eventData.number = numb;
+            SetEvent(numb, eventData);
+            numb++;
+            SetEventsAmount(numb);
+        }
+
+        function PushEventToDay(dayDate, eventId){
+            var dayEvents = GetNumbEventsOfTheDay(dayDate);
+            dayEvents.push(eventId);
+            SetDayEvents(dayDate, dayEvents);
         }
 
      return {
@@ -145,6 +169,8 @@ angular.module('dataManager', ['dataSourse'])
          getEventTimeData: GetEventTimeData,
          setEvent: SetEvent,
          deleteEvent: DeleteEvent,
-         deleteEventFromDay: DeleteEventFromDay
+         deleteEventFromDay: DeleteEventFromDay,
+         createNewEvent: CreateNewEvent,
+         pushEventToDay: PushEventToDay
      }
     }]);
