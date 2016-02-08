@@ -5,6 +5,7 @@ html(lang='en')
    head
        meta(charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1")
        script(src='public/vendor/angular.min.js')
+       script(src='public/vendor/ui-router.js')
 
        script(src='angular/modules/app.js')
        script(src='angular/modules/dataSourse.js')
@@ -37,16 +38,16 @@ html(lang='en')
 
                     div.row#footer
                         div.col-xs-6
-                             button.prevWeek.btn.btn-primary Prev week
+                             button.prevWeek.btn.btn-primary(ng-click='currentDate = getPrevWeek()' ui-sref='prev') Prev week
                         dic.col-xs-6
-                            button.nextWeek.btn.btn-primary Next week
+                            button.nextWeek.btn.btn-primary(ng-click='currentDate = getNextWeek()' ui-sref='next')  Next week
                         div.col-xs-12
                             h1.yearText Year {{year}}
                     div.timeDiv
                         - for (var i=0; i<25; i++)
                             p.timeContainer= i + '.00'
-                    div#content()
-                        div.week(week)
+                    div#content(ui-view)
+
 
 
 

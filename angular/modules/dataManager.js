@@ -62,7 +62,15 @@ angular.module('dataManager', ['dataSourse'])
             var year = date.getFullYear();
             var month = date.getMonth();
             var day = date.getDate();
-            return JSON.parse(localStorage.dateList)[year][month][day].events;
+            var data;
+            try {
+                data = JSON.parse(localStorage.dateList)[year][month][day].events;
+            }
+            catch(e) {
+                //А если такого дня нету, то вернуть пустой список
+                data = [];
+            }
+            return data;
         }
 
         /**
@@ -71,7 +79,22 @@ angular.module('dataManager', ['dataSourse'])
          * @returns {*}
          */
         function GetEvent(id) {
-            return JSON.parse(localStorage.eventList)[id];
+            var data;
+            try {
+                data = JSON.parse(localStorage.eventList)[id];
+            }
+            catch(e) {
+                //если такого события нет, то вернуть пустое событие
+                console.log('Нет такого события ' + id);
+                data = {
+                    type: '',
+                    color: '',
+                    name: '',
+                    content: '',
+                    time: {begin: 0, end: -1}
+                }
+            }
+            return data;
         }
 
         /**
@@ -106,7 +129,23 @@ angular.module('dataManager', ['dataSourse'])
             var month = date.getMonth();
             var day = date.getDate();
             var localData = JSON.parse(localStorage.dateList);
-            localData[year][month][day].events = newData;
+            try {
+                localData[year][month][day].events = newData;
+            }
+            catch(e) {
+                //если добавляем событие в пустой день, то сначала создать этот день.
+                if ( !localData[year] ) { //если не существует такой год, то создаем его.
+                    localData[year] = {};
+                }
+                if ( !localData[year][month] ) { //если не существует записей о таком месяце в таком году, то создаем его.
+                    localData[year][month] = {};
+                }
+                if ( !localData[year][month][day] ) { //если не существует записей о таком дне в таком месяце в таком году, то создаем его.
+                    localData[year][month][day] = {};
+                }
+                localData[year][month][day].events = newData;
+
+            }
             localStorage.dateList = JSON.stringify(localData);
         }
 

@@ -55,7 +55,7 @@ angular.module('app')
                         return true;
                     }
                     else {
-                        console.log('delete denied')
+                        console.log('delete denied');
                         return false;
                     }
                     break;

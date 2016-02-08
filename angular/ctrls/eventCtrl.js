@@ -23,6 +23,8 @@ angular.module('app')
             else $scope.aHeight += 'px';
         };
 
+
+
         $scope.updateEvent();
 
 }]);

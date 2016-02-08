@@ -5,6 +5,11 @@ angular.module("app")
     .directive('week', function(){
         return {
             controller: 'weekCtrl',
-            templateUrl: 'angular/htmls/week.html'
+            templateUrl: 'angular/htmls/week.html',
+            link: function(scope){
+                scope.$watch('currentDate', function(){
+                    scope.updateWeek();
+                });
+            }
         }
     });

@@ -8,6 +8,20 @@
 //-И составление очередности событий, исходя из их номеров.
 angular.module('app')
     .factory('schedule', ['data', function(data){
+
+        function MoveToNextWeek(date) {
+            var newData = new Date(date);
+            newData.setDate(newData.getDate() + 7);
+            return newData;
+        }
+
+        function MoveToPrevWeek(date) {
+            var newData = new Date(date);
+            newData.setDate(newData.getDate() - 7);
+            return newData;
+
+        }
+
         //вот тут я получаю стандартную высоту события на один час.
         // Так как оно может быть изменено я решил динамически подгружать его из стилей
         var basicH = parseInt(getComputedStyle(document.getElementsByClassName('timeContainer')[0]).marginBottom)+20;
@@ -150,6 +164,8 @@ angular.module('app')
 
 
         return {
+            moveToNextWeek: MoveToNextWeek,
+            moveToPrevWeek: MoveToPrevWeek,
             //получить высоту блока события
             getHeight: getHeight,
             //Создать очередность пустных и заполненных событий для корректного расмещения
