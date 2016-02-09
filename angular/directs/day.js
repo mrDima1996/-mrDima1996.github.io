@@ -5,7 +5,8 @@ angular.module('app')
     .directive('day', ['popUpManager', function(popUpManager){
         return {
             scope: {
-                date: '=' // дата этого дня в формате Date
+                date: '=', // дата этого дня в формате Date
+                today: '=' // boolean - этот день - сегодняшний или нет?
             },
             templateUrl: 'angular/htmls/day.html',
             controller: 'dayCtrl',

@@ -3,7 +3,7 @@
  */
 
 angular.module('dataSourse', [])
-.service('getData', function(){
+    .service('getData', function(){
         return {
             dateList:
             {2016: {
@@ -18,57 +18,57 @@ angular.module('dataSourse', [])
                 }
 
             }},
-       eventList: { //?????? ???? ???????
-           eventAmount: 7, // всего колличество событий. Испольуется как простенький генератор уникальных ай-ди для них.
-           0: {
-               type: '',
-               color: '',
-               name: '',
-               content: '',
-               time: {begin: 0, end: -1}
-           },
-            1: {
-                type: 'text',
-                color: 'default',
-                name: 'Test',
-                content: 'ololol',
-                time: {begin: 0, end: 3}
-            },
-            2: {
-                type: 'text',
-                color: 'default',
-                name: 'Test2',
-                content: '1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 jdhgkjd hfkdjf kj kdjhf kgdj fhkdjfh gkdjfh gkdjfh gkdjfh ert er ert ert er tert ert er ter tert 1 1 2 3 3 4 5 ',
-                time: {begin: 5, end: 7}
-            },
-            3: {
-                type: 'text',
-                color: 'default',
-                name: 'Test3',
-                content: 'ololol2',
-                time: {begin: 7, end: 9}
-            },
-            4: {
-                type: 'text',
-                color: 'default',
-                name: 'Test4',
-                content: 'ololol',
-                time: {begin: 11, end: 15}
-            },
-            5: {
-                name: 'Test5',
-                color: 'default',
-                content: 'ololol2',
-                time: {begin: 17, end: 18}
-            },
-            6: {
-                type: 'text',
-                color: 'default',
-                name: 'Test6',
-                content: 'ololol2',
-                time: {begin: 19, end: 24}
+            eventList: { //?????? ???? ???????
+                eventAmount: 7, // всего колличество событий. Испольуется как простенький генератор уникальных ай-ди для них.
+                0: {
+                    type: '',
+                    color: '',
+                    name: '',
+                    content: '',
+                    time: {begin: 0, end: -1}
+                },
+                1: {
+                    type: 'text',
+                    color: 'default',
+                    name: 'Test',
+                    content: 'ololol',
+                    time: {begin: 0, end: 3}
+                },
+                2: {
+                    type: 'text',
+                    color: 'default',
+                    name: 'Test2',
+                    content: '1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 jdhgkjd hfkdjf kj kdjhf kgdj fhkdjfh gkdjfh gkdjfh gkdjfh ert er ert ert er tert ert er ter tert 1 1 2 3 3 4 5 ',
+                    time: {begin: 5, end: 7}
+                },
+                3: {
+                    type: 'text',
+                    color: 'default',
+                    name: 'Test3',
+                    content: 'ololol2',
+                    time: {begin: 7, end: 9}
+                },
+                4: {
+                    type: 'text',
+                    color: 'default',
+                    name: 'Test4',
+                    content: 'ololol',
+                    time: {begin: 11, end: 15}
+                },
+                5: {
+                    name: 'Test5',
+                    color: 'default',
+                    content: 'ololol2',
+                    time: {begin: 17, end: 18}
+                },
+                6: {
+                    type: 'text',
+                    color: 'default',
+                    name: 'Test6',
+                    content: 'ololol2',
+                    time: {begin: 19, end: 24}
+                }
             }
-        }
 
         }
     });

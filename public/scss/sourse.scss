@@ -86,6 +86,9 @@ $timeDivWidth: 41px;
   @include addBorder();
 }
 
+.thisDay {
+  border-color: red;
+}
 
 
 //дата дня
@@ -223,6 +226,7 @@ $timeDivWidth: 41px;
     margin-right: 0;
   }
 }
+
 
 
 

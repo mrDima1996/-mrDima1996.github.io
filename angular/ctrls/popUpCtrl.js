@@ -14,8 +14,8 @@ angular.module('app')
         $scope.pushEvent = function(data) {
             $scope.$apply(function(){
                 //перевожу время в строку, чтобы подвязать с select
-                data.begin = data.time.begin.toString();
-                data.end = data.time.end.toString();
+                data.time.begin = data.time.begin.toString();
+                data.time.end = data.time.end.toString();
                 $scope.source = data;
                 $scope.userAction = 'none';
             })
