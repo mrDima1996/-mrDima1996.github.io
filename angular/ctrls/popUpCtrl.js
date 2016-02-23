@@ -71,7 +71,7 @@ angular.module('app')
                     return '';
                     break;
             }
-        }
+        };
 
         $scope.$watch('source.time.begin', function(newValue, oldValue){
            if (parseInt(newValue)>=parseInt($scope.source.time.end)) $scope.source.time.begin = oldValue;

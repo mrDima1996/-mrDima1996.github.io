@@ -6,6 +6,19 @@ module.exports = function(grunt) {
 
 
     grunt.initConfig({
+        uglify: {
+            dev: {
+                files: {
+                    'angular/dev/app.min.js': ['public/js/app.js']
+                }
+            }
+        },
+        concat: {
+            dist: {
+                src: ['public/vendor/ui-router.js','angular/modules/*.js','angular/factory/*.js','angular/ctrls/*.js','angular/directs/*.js'],
+                dest: 'public/js/app.js'
+            }
+        },
         sass: {
             dev: {
                 src: 'public/scss/sourse.scss',
@@ -25,7 +38,8 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-
-    grunt.registerTask('default', ['sass', 'watch']);
+    grunt.registerTask('default', ['sass', 'watch', 'concat','uglify']);
 };
