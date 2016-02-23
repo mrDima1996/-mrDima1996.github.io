@@ -8,6 +8,7 @@ angular.module('dataSourse', [])
             dateList:
             {2016: {
                 0: {
+                    24:{events: [1]},
                     25:{events: [2,1,3,6,4,5]},
                     26:{events: [1]},
                     27:{events: []},
@@ -15,8 +16,10 @@ angular.module('dataSourse', [])
                     29:{events: [3,6]},
                     30:{events: [4]},
                     31:{events: [2,1,3,6,4]}
+                },
+                1: {
+                    1: {events: [1]}
                 }
-
             }},
             eventList: { //?????? ???? ???????
                 eventAmount: 7, // всего колличество событий. Испольуется как простенький генератор уникальных ай-ди для них.
@@ -31,7 +34,7 @@ angular.module('dataSourse', [])
                     type: 'text',
                     color: 'default',
                     name: 'Test',
-                    content: 'ololol',
+                    content: 'Тестовая запись',
                     time: {begin: 0, end: 3}
                 },
                 2: {
@@ -45,7 +48,7 @@ angular.module('dataSourse', [])
                     type: 'text',
                     color: 'default',
                     name: 'Test3',
-                    content: 'ololol2',
+                    content: 'Тест успешен',
                     time: {begin: 7, end: 9}
                 },
                 4: {
